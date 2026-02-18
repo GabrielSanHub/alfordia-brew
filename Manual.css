@@ -1,0 +1,4585 @@
+/*=======---  FONTES  ---=======*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+Runic&display=swap');
+
+/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */
+
+.page {
+  font-family: "Libre Baskerville", sans-serif;
+  font-size: 11.6px;
+}
+
+.page h1, .page h2, .page h3, .page h4, .page h5, .page h6, .page .table, .page .monster {
+  font-family: "Libre Baskerville", sans-serif;
+}
+
+/* A4 Page Size */
+.page {
+  padding-top: 0.9cm !important;
+	width  : 210mm;
+	height : 296.8mm;
+}
+
+/*=======---  FUNDO DA PÁGINA  ---=======*/
+
+.page {
+  background-color: #F5EAD5; 
+  background-image: url('/assets/DMG_background.png');
+  background-blend-mode: multiply; 
+  background-size: cover;
+}
+
+/*=======---  RODAPÉ  ---=======*/
+
+/* --- Configuração das Imagens do Rodapé (Barras Metálicas) --- */
+
+.page:after {
+    all: unset;
+}
+
+/* Estilo base para a imagem do rodapé em TODAS as páginas */
+.page::after {
+    content: "";
+    
+    
+    background-image: url(https://i.imgur.com/QvhK2GY.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    position: absolute;
+    z-index: 12;
+    pointer-events: none;
+    opacity: 1;
+    
+    height: 90px;
+    width: 380px;
+    
+    bottom: -5px;
+}
+
+/* Página Ímpar (Barra na Esquerda) */
+.page:nth-child(odd)::after {
+    left: 6px;
+    right: auto;
+}
+
+/* Página Par (Barra na Direita Espelhada) */
+.page:nth-child(even)::after {
+    right: 6px; 
+    left: auto;
+    transform: scaleX(-1); 
+}
+
+/* ===================================================
+   EXCEÇÃO: RODAPÉ DA PÁGINA 10
+   =================================================== */
+
+/* Seleciona especificamente a 10ª página do documento */
+.page:nth-child(10)::after {
+    background-image: url("https://i.imgur.com/Y40tBdQ.png") !important;
+    content: "";
+    transform: scaleX(1) !important; 
+    right:-270px
+}
+
+/* ===================================================
+   EXCEÇÃO: RODAPÉ DA PÁGINA 50
+   =================================================== */
+
+/* Seleciona especificamente a 50ª página do documento */
+.page:nth-child(50)::after {
+    background-image: url("https://i.imgur.com/6JTrhlg.png") !important;
+    content: "";
+    transform: scaleX(1) !important; 
+    right:-270px
+}
+
+/* ===================================================
+   EXCEÇÃO: RODAPÉ DA PÁGINA 100
+   =================================================== */
+
+/* Seleciona especificamente a 100ª página do documento */
+.page:nth-child(100)::after {
+    background-image: url("https://i.imgur.com/Qrxnr5w.png") !important;
+    content: "";
+    transform: scaleX(1) !important; 
+    right:-270px
+}
+
+
+/* --- Configurações da Numeração das Páginas (Texto) --- */
+
+/* Estilo base do número */
+.page .pageNumber {
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+    z-index: 1001;
+    position: absolute;
+    bottom: 30px; 
+    opacity: 1;
+    
+
+    width: 50px;       
+    text-align: center; 
+    
+    text-shadow:
+        2px 2px 1px rgba(0, 0, 0, 0.7),
+        0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Número na Ímpar (Esquerda) */
+.page:nth-child(odd) .pageNumber {
+    left: 33px; 
+    right: auto;
+}
+
+/* Número na Par (Direita) */
+.page:nth-child(even) .pageNumber {
+    right: 33px; 
+    left: auto;
+}
+
+/*=======---  ELEMENTOS ACESSÓRIOS  ---=======*/
+
+.painel-texto-direita {
+  background-color: rgba(0, 0, 0, 0.75); 
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.BackCoverHr {
+  visibility: visible !important; 
+  width: 4.5cm !important; 
+  height: .53cm !important; 
+  margin-top: 0.5cm !important; 
+  margin-bottom: 0.5cm !important; 
+  margin-right: auto !important; 
+  margin-left: auto !important; 
+  background-image: url(/assets/horizontalRule.svg) !important;
+  background-size: 100% 100% !important; 
+  border: none !important; 
+  z-index: 6 !important;
+}
+
+/*=======---  BACK COVER NA DIREITA  ---=======*/
+
+.BackCoverTextoDireita {
+  color: white;
+  text-align: center;
+  margin-left: 25px;
+  margin-right: -35px;
+}
+
+.BackCoverTituloDireita {
+  margin-top: 30px;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 1.09cm !important;
+  line-height: 1.26cm !important;
+  color: #ED1C24 !important;
+  text-align: center;
+  margin-left: 25px; 
+  margin-right: -35px;
+}
+
+.BackCoverSubTituloDireita {
+  margin-top: -10px;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 0.82cm !important;
+  line-height: 1.26cm !important;
+  color: #b3252b !important;
+  text-align: center;
+  margin-right: -25px; 
+  margin-left: 35px;
+}
+
+
+.BackCoverFundoDireita {
+  position: absolute;
+
+  top: -2%;    
+  right: -1%;   
+  width: 48%; 
+  height: 101%; 
+
+  z-index: -1;
+  transform: none;
+
+  background-image: 
+    linear-gradient(#0F0F0F, #000000), 
+    linear-gradient(#0F0F0F, #000000); 
+
+  background-size: 
+    5.0% 100%,  
+    92% 100%;   
+
+
+  background-position: 
+    100% 0,   
+    0 0;      
+
+  background-repeat: no-repeat;
+  
+  filter: drop-shadow(-5px 0 10px rgba(0,0,0,0.9));
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: none;
+}
+
+
+/*=======---  BACK COVER NA ESQUERDA  ---=======*/
+
+.BackCoverTextoEsquerda {
+  color: white;
+  text-align: center;
+  margin-right: 25px;
+  margin-left: -35px;
+}
+
+.BackCoverTituloEsquerda {
+  margin-top: 30px;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 1.30cm !important;
+  line-height: 1.26cm !important;
+  color: #ED1C24 !important;
+  text-align: center;
+  margin-right: 25px; 
+  margin-left: -35px;
+}
+
+.BackCoverSubTituloEsquerda {
+  margin-top: -10px;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 0.82cm !important;
+  line-height: 1.26cm !important;
+  color: #b3252b !important;
+  text-align: center; 
+}
+
+.BackCoverFundoEsquerda {
+  position: absolute;
+
+  top: -2%;    
+  left: -1%;   
+  width: 48%; 
+  height: 101%; 
+
+  z-index: -1;
+  transform: none;
+
+  background-image: 
+    linear-gradient(#0F0F0F, #000000), 
+    linear-gradient(#0F0F0F, #000000); 
+
+  background-size: 
+    5.0% 100%, 
+    92% 100%; 
+
+  background-position: 
+    0 0,      
+    100% 0;   
+
+  background-repeat: no-repeat;
+  
+  filter: drop-shadow(5px 0 10px rgba(0,0,0,0.9));
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/*=======---  CAPÍTULOS  ---=======*/
+
+.CapTitulo {
+  margin-top: -20px !important;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 1.30cm !important;
+  line-height: 2.36cm !important;
+  color: #171617 !important;
+  text-align: center;
+
+}
+
+.CapSubTitulo {
+  margin-top: -10px;
+  margin-bottom: .3cm !important;
+  font-family: 'NodestoCapsCondensed' !important;
+  font-size: 0.72cm !important;
+  line-height: 1.26cm !important;
+  color: #302f30 !important;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/*=======---  PAPIRO  ---=======*/
+
+.page .note.papiro {
+    background-image: url('https://i.imgur.com/7hpAhdV.png');
+    background-size: 115% 102%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 35px 40px;
+    color: #1F1403;
+    text-align: justify;
+    font-size: 0.95em;
+    
+    text-shadow: 0 0 15px rgba(255, 250, 240, 0.8), 
+                 0 0 2px rgba(255, 255, 255, 0.4);
+                 
+    filter:drop-shadow(2px 4px 6px black);
+    margin-top:-10px
+    
+}
+
+.page .note.papiro h5 {
+    color: #4a1208;  
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 2.3em;
+    font-family: "NodestoCapsCondensed", sans-serif;
+}
+
+.page .note.papiro hr {
+    border-top: 2px solid #b89e7a;
+    border-bottom: none;
+    margin-top: 5px;
+    margin-bottom: 11px;
+}
+
+.page .note.papiro strong {
+    color: #1F1403;
+    font-weight: bold;
+    font-variant: small-caps; /* Transforma "Vigor" em "VIGOR" estético */
+    font-size: 1.15em;
+}
+
+.page .note.papiro ul {
+    padding-left: 1.5em;
+}
+
+.page .note.papiro li {
+    margin-bottom: 0.5em;
+    list-style-type: square;
+}
+
+
+.PapiroHr {
+    border: 0;
+    border-top: 1px solid #8c7048; /* Linha de cima */
+    border-bottom: 1px solid #8c7048; /* Linha de baixo */
+    height: 2px; /* Espaço entre as linhas */
+    background: transparent;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+/*=======---  PAPIRO LIGHT  ---=======*/
+
+.page .note.papirolight {
+    background-image: url('https://i.imgur.com/7hpAhdV.png');
+    background-size: 115% 102%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 45px 45px;
+    color: #1F1403;
+    text-align: justify;
+    font-size: 0.95em;
+    
+    text-shadow: 0 0 15px rgba(255, 250, 240, 0.8), 
+                 0 0 2px rgba(255, 255, 255, 0.4);
+                 
+    filter:drop-shadow(2px 4px 6px black);
+    margin-left:
+    
+}
+
+.page .note.papirolight h5 {
+    color: #4a1208;  
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 2.3em;
+    font-family: "NodestoCapsCondensed", sans-serif;
+}
+
+.page .note.papirolight hr {
+    border-top: 2px solid #b89e7a;
+    border-bottom: none;
+    margin-top: 5px;
+    margin-bottom: 11px;
+}
+
+.page .note.papirolight strong {
+    color: #1F1403;
+    font-weight: bold;
+    font-variant: small-caps; /* Transforma "Vigor" em "VIGOR" estético */
+    font-size: 1.15em;
+}
+
+.page .note.papirolight ul {
+    padding-left: 1.5em;
+}
+
+.page .note.papirolight li {
+    margin-bottom: 0.1em;
+    list-style-type: square;
+}
+
+
+.PapiroHr {
+    border: 0;
+    border-top: 1px solid #8c7048; /* Linha de cima */
+    border-bottom: 1px solid #8c7048; /* Linha de baixo */
+    height: 4px; /* Espaço entre as linhas */
+    background: transparent;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+/*=======---  ESTILO DOS LINKS NO TEXTO  ---=======*/
+
+/* Estado normal do link */
+.page p a {
+    color: #8B3A3A; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+/* Quando passa o mouse por cima */
+.page p a:hover {
+    color: #ED1C24; 
+    text-decoration: underline; 
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=======---  ATRIBUTOS DEFINITIVOS: O EMBLEMA SÓLIDO  ---=======*/
+
+/* 1. Container da Tabela */
+.page .tabela-atributos table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.page .tabela-atributos tbody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.page .tabela-atributos thead { display: none; }
+
+/* COLUNA VERTICAL (O Container do Emblema) */
+.page .tabela-atributos tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px; /* Largura FIXA e um pouco mais larga para presença */
+    position: relative;
+    background: transparent !important;
+}
+
+
+/*=======---  TABELA DE TEMPOS (A TABELA COMUM)  ---=======*/
+/* Essa classe estiliza a segunda tabela para ficar bonita e técnica */
+
+.page .tabela-tempos table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 11.5px;
+    margin-top: 10px;
+    background: transparent;
+}
+
+.page .tabela-tempos thead th {
+    background-color: #2c2c2c; /* Cabeçalho Preto */
+    color: white;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1px;
+    border: 1px solid #1a1a1a;
+    padding: 4px;
+}
+
+.page .tabela-tempos tbody td {
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px;
+}
+
+/* Coluna de Valores (direita) em Vermelho e Negrito */
+.page .tabela-tempos tbody td:nth-child(2) {
+    color: #8B0000;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Efeito Zebrado sutil */
+.page .tabela-tempos tbody tr:nth-child(odd) {
+    background-color: rgba(0,0,0,0.03); 
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=======---  CAPA DE CAPÍTULO: ELEGÂNCIA GÓTICA  ---=======*/
+
+.page .capa-monstros {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background-color: #f0e6d2;
+    background-image: 
+        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.15) 100%),
+        url("https://www.transparenttextures.com/patterns/aged-paper.png"); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.page .capa-monstros::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    border: 3px solid #1a1a1a;
+    outline: 1px solid #8B0000;
+    outline-offset: -8px;
+    pointer-events: none;
+}
+
+.page .capa-monstros h1 {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 110px;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    border: none;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.page .capa-monstros h1::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #8B0000, transparent);
+    margin: 20px auto 0 auto;
+}
+
+.page .capa-monstros p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #2c2c2c;
+    text-align: justify;
+    text-align-last: center;
+    width: 70%;
+    margin-top: 30px;
+}
+
+.page .capa-monstros p::first-letter {
+    font-family: 'NodestoCapsCondensed', serif;
+    font-size: 4.5em;
+    float: left;
+    line-height: 0.8;
+    margin-right: 12px;
+    margin-top: -5px;
+    color: #8B0000;
+    text-shadow: 1px 1px 0px #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=======---  DOSSIÊ E ORBES (VERSÃO FINAL REFINADA)  ---=======*/
+
+/* =========================================================
+   2. O TOPO (NOME DO ATRIBUTO)
+   ========================================================= */
+.page .tabela-atributos td:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;       /* Ocupa toda a largura (50px) */
+    height: 19px;      /* Altura levemente maior para ler melhor */
+    
+    background-color: #0d0d0d; /* Preto Profundo */
+    color: #fff;
+    
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: 500;
+    font-size: 15px;   /* Fonte um pouco maior */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    /* Acabamento */
+    border: none;
+    border-radius: 2px 2px 0 0; /* Cantos arredondados só no topo */
+    
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove itálico */
+.page .tabela-atributos td:nth-child(1) em { font-style: normal; }
+
+
+/* =========================================================
+   3. A BASE (VALOR DO ATRIBUTO)
+   ========================================================= */
+.page .tabela-atributos td:nth-child(2) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;  /* Mesma largura do topo (50px) */
+    height: 50px; 
+    
+    margin-top: 0; /* Encostado perfeitamente no topo */
+    
+    background: transparent;
+    border: none;
+    padding: 0;
+    
+    /* --- MELHORIA DE LEGIBILIDADE AQUI --- */
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 28px;   /* Bem grande */
+    font-weight: 700;  /* Negrito extra se a fonte suportar */
+    color: #ffffff;    /* Branco puro */
+    
+    /* Contorno preto sólido ao redor do número */
+    text-shadow: 
+       2px 2px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+    
+    z-index: 5;
+}
+
+/* --- A BASE PRETA (Conecta com o Topo) --- */
+.page .tabela-atributos td:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    
+    /* Alinhamento Perfeito: Ocupa toda a largura da coluna */
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    
+    background-color: #0d0d0d; /* Mesma cor do topo para parecer peça única */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+}
+
+/* --- O ESCUDO VERMELHO (Miolo) --- */
+.page .tabela-atributos td:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    
+    /* INSET: O vermelho é menor que o preto, criando a borda grossa */
+    top: 0;      
+    left: 3px;   /* 3px de borda esquerda */
+    right: 3px;  /* 3px de borda direita */
+    width: calc(100% - 6px); /* Calcula o tamanho restante */
+    height: calc(100% - 3px);
+    
+    background-color: #900000; /* Vermelho Sangue */
+    
+    /* Mesmo recorte */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    
+    /* Sombra interna para profundidade sutil */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+/* --- 1. ESTRUTURA DOS ORBES (ATRIBUTOS) --- */
+
+/* Tabela Limpa */
+.page .monster-orbs table {
+    width: 100%;
+    margin: 0; /* CORREÇÃO: Removeu o espaço extra abaixo */
+    border-spacing: 0;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+.page .monster-orbs tbody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 5px;
+}
+
+.page .monster-orbs thead { display: none; }
+
+/* O Orbe Individual */
+.page .monster-orbs tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 64px; 
+    position: relative;
+    background: transparent !important;
+    filter: drop-shadow(0px 4px 3px rgba(0,0,0,0.5));
+    border-radius: 50%;
+}
+
+/* Anel de acabamento */
+.page .monster-orbs tr::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* --- TOPO DO ORBE (NOME) --- */
+.page .monster-orbs td:nth-child(1) {
+    display: flex;
+    align-items: flex-end; /* Texto no fundo do hemisfério */
+    justify-content: center;
+    
+    width: 100%;
+    height: 28px;
+    padding-bottom: 3px;
+    
+    background: radial-gradient(circle at top, #333, #0a0a0a);
+    
+    /* CORREÇÃO DE COR: Garante branco mesmo se estiver em negrito */
+    color: #ffffff !important; 
+    
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px; /* Aumentei 1px para ler melhor */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    border-radius: 32px 32px 0 0; 
+    border-bottom: 1px solid #222;
+    margin: 0;
+    z-index: 2;
+    
+    /* Sombra no texto para garantir leitura */
+    text-shadow: 0px 1px 2px #000; 
+}
+
+/* Garante que o negrito do markdown também fique branco */
+.page .monster-orbs td:nth-child(1) strong,
+.page .monster-orbs td:nth-child(1) em {
+    color: #ffffff !important;
+    font-style: normal;
+}
+
+/* --- BASE DO ORBE (VALOR) --- */
+.page .monster-orbs td:nth-child(2) {
+    display: flex;
+    align-items: flex-start; /* Texto no topo do hemisfério */
+    justify-content: center;
+    
+    width: 100%;
+    height: 36px;
+    padding-top: 2px;
+    margin-top: 0px;
+    
+    background: radial-gradient(circle at center, #b30000, #700000 80%);
+    border-radius: 0 0 32px 32px;
+    
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000, 2px 2px 2px rgba(0,0,0,0.5);
+    
+    border: none;
+    z-index: 1;
+}
+
+
+/* --- 2. ESTRUTURA DO CARD (DOSSIÊ) --- */
+
+.page .monster-dossier {
+    width: 100%;
+    max-width: 400px;
+    margin: 1px auto;
+    background-color: #fdfbf7;
+    
+    border: 4px solid #1a1a1a;
+    outline: 1px solid #900000;
+    outline-offset: -6px;
+    
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    font-family: 'Libre Baskerville', sans-serif;
+    color: #111;
+    overflow: hidden;
+}
+
+/* Título */
+.page .monster-dossier h4 {
+    background-color: #111;
+    color: #fff;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: 8px;
+    border-bottom: 3px solid #900000;
+}
+
+/* Imagem */
+.page .monster-dossier .visual-block {
+    position: relative;
+    width: 100%;
+    background: radial-gradient(circle, #ffffff 40%, #d0d0d0 100%);
+    border-bottom: 2px solid #111;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.page .monster-dossier img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    mix-blend-mode: multiply;
+    filter: contrast(1.1) sepia(0.4);
+}
+
+/* Lore */
+.page .monster-dossier .lore-section {
+    padding: 15px 20px;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: justify;
+    font-style: italic;
+    background-color: rgba(0,0,0,0.03);
+    border-bottom: 1px solid #ccc;
+}
+
+/* Container dos Orbes (Ajustado) */
+.page .monster-dossier .stats-section {
+    /* Padding reduzido para aproximar o conteúdo */
+    padding: 12px 5px; 
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Dados (Skills/Fraquezas) */
+.page .monster-dossier .data-section {
+    padding: 1px 15px 1px 10px; /* Ajuste fino */
+    font-size: 11px;
+}
+
+.page .monster-dossier h6 {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 16px;
+    color: #900000;
+    border-bottom: 1px solid #111;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.page .monster-dossier ul {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.page .monster-dossier li {
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.page .monster-dossier strong {
+    color: #111;
+    font-weight: bold;
+}
+
+/* Loot */
+.page .monster-dossier .loot-section {
+    background-color: #f0e6d2;
+    border-top: 2px solid #111;
+    padding: 15px;
+}
+.page .monster-dossier .loot-section h5 {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+.page .monster-dossier .loot-section blockquote {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   TELA PRETA
+   ========================================================= */
+
+/* --- CONFIGURAÇÃO DA PÁGINA PRETA --- */
+
+/* 1. Detecta se a página tem a tag 'black-page' e altera o fundo */
+
+.page:has(.black-page) {
+    /* background-color: #1111; */
+    /* background-color: #242424 */
+;
+}
+
+/* 2. Ajusta a cor do texto comum para branco */
+.page:has(.black-page) p,
+.page:has(.black-page) ul,
+.page:has(.black-page) ol,
+.page:has(.black-page) li,
+.page:has(.black-page) table {
+/*     color: #e0e0e0; */
+}
+
+/* 3. Ajusta a cor dos títulos (Sugestão: Dourado ou Branco) */
+.page:has(.black-page) h1,
+.page:has(.black-page) h2,
+.page:has(.black-page) h3,
+.page:has(.black-page) h4 {
+    color: #c9ad6a; /* Tom dourado clássico de D&D */
+    border-bottom-color: #c9ad6a; /* Linha abaixo do título */
+}
+
+/* 4. Ajusta a cor das notas (Monster Blocks / Note Blocks) se necessário */
+.page:has(.black-page) .note, 
+.page:has(.black-page) .monster {
+    background-color: #2b2b2b; /* Fundo cinza escuro para notas */
+    color: #fff;
+}
+
+/* 5. Oculta o texto "black-page" visualmente, usando-o apenas como gatilho */
+.black-page {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   BLOCO DE INFORMAÇÃO (LEATHER STYLE)
+   ========================================================= */
+
+.information {
+    padding: 13px;
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    
+    /* Estilo "Couro Vermelho" */
+    background-color: #601212; /* Vermelho escuro base */
+    background-image: radial-gradient(circle at top left, #852020, #4a0a0a);
+    
+    /* Bordas e Sombras */
+    border: 3px solid #2b0808; /* Borda externa escura */
+    outline: 1px solid #c9ad6a; /* Linha dourada interna */
+    outline-offset: -6px;       /* Distância da linha dourada */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6); /* Sombra projetada no papel */
+    border-radius: 4px;
+
+    /* Tipografia */
+    color: #f2f2f2; /* Texto claro */
+    font-size: 10px;
+    line-height: 1.2em;
+}
+
+/* Títulos dentro do bloco */
+.information h1, .information h2, .information h3, .information h4 {
+    color: #c9ad6a; /* Títulos dourados */
+    margin-top: 0;
+    border-bottom: 1px solid #c9ad6a;
+}
+
+/* POSICIONAMENTOS LATERAIS */
+
+/* Canto Inferior Esquerdo (alinhado com a margem padrão) */
+.information-left {
+    left: 65px; 
+}
+
+/* Canto Inferior Direito (alinhado com a margem padrão) */
+.information-right {
+    right: 65px;
+}
+
+
+/* --- TABELA INFORMATIVA (ESTILO COURO) --- */
+
+/* 1. Estiliza o container da tabela */
+.information-table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+}
+
+/* 2. Estiliza a tabela em si */
+.information-table table {
+    width: 100%;
+    color: #f2f2f2; /* Texto esbranquiçado para contraste */
+    border-spacing: 0;
+    font-size: 10px !important;
+}
+
+/* 3. Cabeçalho da tabela (Header) */
+.information-table table th {
+    color: #c9ad6a; /* Dourado igual as bordas */
+    border-bottom: 2px solid #c9ad6a; /* Linha dourada grossa embaixo do título */
+    background-color: transparent; /* Remove fundos padrão */
+    text-align: center;
+}
+
+/* 4. Linhas da tabela (Corpo) */
+.information-table table td {
+    padding: 4px 8px; /* Um pouco de espaço interno */
+    border: none; /* Remove bordas padrão feias */
+}
+
+/* 5. Efeito Zebra (Listras) */
+/* Em vez de cinza, usamos preto transparente para escurecer o vermelho de fundo */
+.information-table table tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.25); 
+}
+
+/* Garante que as linhas pares sejam transparentes para mostrar o couro */
+.information-table table tbody tr:nth-child(even) {
+    background-color: transparent; 
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   RESET ESCURO (Protegido)
+   =================================================== */
+.page:has(.page-black) {
+    background-image: none !important;
+    background-color: #0b0b0b !important;
+}
+.page .block.page-black { display: none; }
+.page:has(.page-black) * { border-image: none !important; }
+
+/* Classe utilitária para texto branco */
+.page .block.white { color: #fff; display: block; margin-bottom: 10px; }
+
+/* ===================================================
+   FUNDO COLORIDO E IMAGEM (ESTILO RPG SUPREMO)
+   =================================================== */
+
+/* --- CONFIGURAÇÃO BASE DA FAIXA (Serve para os dois lados) --- */
+.boss-stripe {
+    position: absolute;
+    top: -50px;    
+    bottom: -50px; 
+    width: 600px;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* --- VARIANTE 1: FAIXA NA DIREITA (Padrão) --- */
+.boss-stripe {
+    right: 0;
+    /* Máscara: Transparente na Esquerda -> Sólido na Direita */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 85%);
+    mask-image: linear-gradient(to right, transparent 0%, black 85%);
+    box-shadow: inset 50px 0 150px rgba(0,0,0,0.9);
+}
+
+/* --- VARIANTE 2: FAIXA NA ESQUERDA (NOVO!) --- */
+/* Adicione a classe "left-side" na div do boss-stripe */
+.boss-stripe.left-side {
+    right: auto; /* Anula a direita */
+    left: 0;     /* Cola na esquerda */
+    
+    /* Inverte a máscara: Sólido na Esquerda -> Transparente na Direita */
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 85%);
+    mask-image: linear-gradient(to left, transparent 0%, black 85%);
+    
+    /* Inverte a sombra interna */
+    box-shadow: inset -50px 0 150px rgba(0,0,0,0.9);
+}
+
+/* TEXTURA DE PAPEL (Comum aos dois) */
+.boss-stripe::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, transparent 50%, rgba(0,0,0,0.4) 100%),
+        url("https://www.transparenttextures.com/patterns/stardust.png");
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+}
+
+/* Borda Sutil */
+.boss-stripe::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; 
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5), transparent);
+    z-index: 2;
+    opacity: 0.3;
+}
+/* Ajuste da posição da borda dependendo do lado */
+.boss-stripe:not(.left-side)::before { left: 100px; }
+.boss-stripe.left-side::before { right: 100px; }
+
+
+/* --- CONTAINER DA IMAGEM --- */
+.page .block.boss-image-container {
+    position: absolute;
+    top: 0; bottom: 0; 
+    width: 500px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Padrão (Direita) */
+.page .block.boss-image-container { right: 0; }
+
+/* Invertido (Esquerda) */
+.page .block.boss-image-container.left-side {
+    right: auto;
+    left: 0;
+}
+
+/* Máscara da Imagem */
+.page .block.boss-image-container .imageMaskEdge {
+    width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+.page .block.boss-image-container img {
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+    filter: drop-shadow(-15px 5px 20px rgba(0,0,0,0.7));
+}
+/* Inverte a sombra do drop-shadow se a imagem estiver na esquerda */
+.page .block.boss-image-container.left-side img {
+    filter: drop-shadow(15px 5px 20px rgba(0,0,0,0.7));
+}
+
+/* ===================================================
+   3. ESTILOS INTERNOS (TEXTO E POSICIONAMENTO)
+   =================================================== */
+
+.page .block.legend-dossier {
+    width: 320px;
+    max-width: 45%;
+    font-family: 'Libre Baskerville', sans-serif;
+    color: #cccccc;
+    font-size: 13px;
+    position: absolute;
+    top: 40px;
+    z-index: 50;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* --- MODO ESQUERDA (Texto na Esquerda, Imagem na Direita) --- */
+.page .block.legend-dossier.left {
+    left: 50px;
+    text-align: left;
+}
+
+/* --- MODO DIREITA (Texto na Direita, Imagem na Esquerda) --- */
+.page .block.legend-dossier.right {
+    right: 50px;
+    left: auto;
+    text-align: right; /* Alinha o texto à direita */
+}
+
+/* Headers */
+.page .block.monster-header h1 {
+    font-family: 'NodestoCapsCondensed';
+    color: #d13a3a;
+    font-size: 42px;
+    margin: 0 0 5px 0;
+    line-height: 0.9em;
+    border: none;
+    text-shadow: 0px 0px 10px rgba(209, 58, 58, 0.3);
+}
+
+.page .block.monster-header h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #0b0b0b;
+    font-weight: 800;
+    font-size: 14px;
+    background: #ccc;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-top: 0px;
+    border: none;
+}
+
+.page .block.flavor { font-style: italic; color: #999; margin: 15px 0; border: none; }
+.page .block.section-title { color: #fff; border-bottom: 2px solid #d13a3a; font-family: 'NodestoCapsCondensed'; font-size: 22px; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* TABELAS INVISIVEIS */
+.page .block.stats-table table, .page .block.action-table table { width: 100%; border-collapse: collapse; background: transparent !important; border: none !important; }
+.page .block.stats-table tr, .page .block.action-table tr { background-color: transparent !important; border: none !important; border-bottom: 1px solid #333 !important; }
+.page .block.stats-table td, .page .block.stats-table th, .page .block.action-table td, .page .block.action-table th { background: transparent !important; border: none !important; color: #ddd; padding: 4px; }
+.page .block.stats-table th, .page .block.action-table th { color: #d13a3a; font-size: 12px; text-transform: uppercase; font-weight: bold; }
+.page .block.stats-table td { font-size: 20px; font-weight: bold; color: #fff; }
+
+/* Alinhamento de tabelas no modo Right */
+.page .block.legend-dossier.right table {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* SKILLS */
+.page .block.skills ul { padding: 0; list-style: none; }
+.page .block.skills li { margin-bottom: 10px; color: #bbb; line-height: 1.4em;}
+.page .block.skills strong { color: #fff; font-weight: bold; font-variant: small-caps; border-bottom: 1px dotted #d13a3a; }
+
+/* ===================================================
+   MINI TABELA FLUTUANTE (AUTOMÁTICA + VARIÁVEL)
+   =================================================== */
+
+/* 1. Estilo Base do Container */
+.page .block.action-table.mini-floating {
+    position: absolute;
+    top: 0px; 
+    width: 130px !important;
+    z-index: 100;
+    margin: 0;
+    
+    /* --- DEFINIÇÃO DA VARIÁVEL DE POSIÇÃO --- */
+    /* Este é o valor padrão. Se você não colocar nada no MD, usa esse. */
+    --offset: -390px; 
+    
+    /* Visual (Zebrado e Bordas) */
+    background-color: #000;
+    border: 1px solid #d13a3a;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.9);
+    border-radius: 4px;
+    padding: 0px; 
+    overflow: hidden;
+}
+
+/* 2. AUTOMATISMO DE POSIÇÃO COM VARIÁVEL */
+
+/* CASO A: Texto na Esquerda -> Tabela vai para a Direita */
+.page .block.legend-dossier.left .block.action-table.mini-floating {
+    right: var(--offset); /* Usa a variável em vez de número fixo */
+    left: auto;
+}
+
+/* CASO B: Texto na Direita -> Tabela vai para a Esquerda */
+.page .block.legend-dossier.right .block.action-table.mini-floating {
+    left: var(--offset);  /* Usa a variável em vez de número fixo */
+    right: auto;
+}
+
+/* 3. ESTILOS INTERNOS (Cores e Fontes) */
+
+/* Zebrado (Preto e Vermelho) */
+.page .block.action-table.mini-floating tr:nth-child(odd) { background-color: #0b0b0b !important; }
+.page .block.action-table.mini-floating tr:nth-child(even) { background-color: #4a0505 !important; }
+.page .block.action-table.mini-floating td { color: #fff !important; }
+
+/* Tipografia */
+.page .block.action-table.mini-floating table { width: 100%; }
+.page .block.action-table.mini-floating th { 
+    font-size: 10px !important; 
+    padding: 2px !important; 
+    text-align: center; 
+    border-bottom: 1px solid #d13a3a !important; 
+}
+.page .block.action-table.mini-floating td { 
+    font-size: 11px !important; 
+    padding: 2px !important; 
+    font-weight: normal !important; 
+    color: #ccc !important; 
+}
+.page .block.action-table.mini-floating td:nth-child(2) { 
+    color: #fff !important; 
+    font-weight: bold !important; 
+    text-align: center; 
+}
+
+/* ===================================================
+   6. RECOMPENSA (CANTOS)
+   =================================================== */
+.page .note.recompensa {
+    background-color: #1a1a1a;
+    border: 1px solid #d13a3a;
+    padding: 15px;
+    color: #ccc;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+    z-index: 100; 
+    width: 320px; 
+}
+.page .note.recompensa h5 {
+    color: #d13a3a;
+    font-family: 'NodestoCapsCondensed';
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    margin-top: 0;
+}
+.page .note.recompensa.direita { position: absolute; bottom: 23px; right: 50px; }
+.page .note.recompensa.esquerda { position: absolute; bottom: 23px; left: 50px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   ESTILO DO TÍTULO: FERAS PRIMORDIAIS
+   (Apenas em páginas Semi-Black)
+   =================================================== */
+
+/* 1. O Título Principal (H3) */
+.page:has(.page-semiblack) .block.wide h3 {
+    font-family: 'NodestoCapsCondensed', sans-serif; /* Fonte oficial de títulos D&D */
+    font-size: 37px;          /* Aumenta o tamanho para impor respeito */
+    font-weight: normal;      /* Nodesto já é pesada, normal fica melhor */
+    text-transform: uppercase;
+    letter-spacing: 5px;      /* Espaçamento cinematográfico entre letras */
+    
+    /* COR E DEGRADÊ NO TEXTO */
+    background: linear-gradient(to bottom, #ff5e5e 0%, #a60000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #a60000; /* Fallback para navegadores antigos */
+    
+    /* SOMBRA E BRILHO */
+    /* Cria um contorno escuro para ler no fundo cinza e um brilho vermelho atrás */
+    filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 0.4)) drop-shadow(2px 4px 0px rgba(0,0,0,0.8));
+    
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: none; /* Remove a borda padrão chata */
+    position: relative;
+    margin-top:-30px;
+}
+
+/* 2. A Linha Ornamental (Embaixo do Título) */
+/* Cria uma linha que desaparece nas pontas (fade out) */
+.page:has(.page-semiblack) .block.wide h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%; /* Centraliza visualmente */
+    width: 70%;
+    height: 2px;
+    
+    /* Gradiente: Transparente -> Vermelho Sangue -> Transparente */
+    background: linear-gradient(90deg, transparent 0%, #a60000 50%, transparent 100%);
+    
+    /* Brilho na linha */
+    box-shadow: 0 0 10px #ff3333;
+    opacity: 0.8;
+}
+
+/* 3. O Texto de Descrição (Itálico logo abaixo) */
+/* Melhora a leitura no fundo escuro, já que o padrão é preto */
+.page:has(.page-semiblack) .block.wide p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    line-height: 1.6em;
+    font-style: italic;
+    
+    /* Cor Dourada Envelhecida (Combina com o vermelho) */
+    color: #dcd0b3; 
+    
+    /* Leve sombra para destacar do fundo cinza */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    
+    max-width: 90%;
+    margin: 0 auto; /* Centraliza o bloco de texto */
+}
+
+/* 4. Pequeno ajuste no Page Semi-Black para garantir contraste */
+.page .block.page-semiblack {
+    display: none; /* Esconde a tag de ativação */
+}
+
+/* Garante que o fundo da página receba a cor correta */
+.page:has(.page-semiblack) {
+    background-color: #3B3B3B !important; /* Um cinza um pouco mais escuro para o vermelho estourar */
+    background-blend-mode: multiply;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   WEAPON SCROLL (CORRIGIDO E BLINDADO)
+   =================================================== */
+
+.weapon-scroll {
+    --rarity: #5c4033; /* Cor Padrão (Marrom) */
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-family: 'Bookinsanity', 'ScalySans', serif;
+    color: #1a1a1a;
+    background-color: #fdf6e3;
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    
+    /* A Borda usa a cor da variável --rarity */
+    border: 3px double var(--rarity); 
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+/* ===================================================
+   PALETA DE ARMAS (NEUTRAS & MEDIEVAIS)
+   =================================================== */
+
+/* --- PEQUENAS (Tons Leves/Desbotados) --- */
+.weapon-scroll.peq-cort   { --rarity: #8f6c52; } /* Couro Claro */
+.weapon-scroll.peq-perf   { --rarity: #757c80; } /* Aço Polido */
+.weapon-scroll.peq-cont   { --rarity: #8a7356; } /* Madeira Clara */
+
+/* --- MÉDIAS (Tons Sóbrios/Padrão) --- */
+.weapon-scroll.med-cort   { --rarity: #5c4033; } /* Couro Padrão (Marrom Escuro) */
+.weapon-scroll.med-perf   { --rarity: #4a5d5e; } /* Aço Azulado (Frio) */
+.weapon-scroll.med-cont   { --rarity: #4e3629; } /* Madeira Escura */
+.weapon-scroll.med-cort-perf { --rarity: #806545; } /* Bronze Envelhecido */
+.weapon-scroll.med-cort-cont { --rarity: #754836; } /* Ferro Enferrujado */
+.weapon-scroll.med-hibrida   { --rarity: #8a2c2c; } /* VERMELHO SANGUE (Solicitado) */
+
+/* --- GRANDES (Tons Pesados/Escuros) --- */
+.weapon-scroll.grd-cort   { --rarity: #2e2621; } /* Ferro Negro */
+.weapon-scroll.grd-perf   { --rarity: #2f3640; } /* Chumbo Escuro */
+.weapon-scroll.grd-cont   { --rarity: #1f1a17; } /* Ébano (Quase Preto) */
+.weapon-scroll.grd-cort-perf { --rarity: #524738; } /* Latão Sujo */
+.weapon-scroll.grd-cort-cont { --rarity: #4a2e24; } /* Ferrugem Escura */
+.weapon-scroll.grd-hibrida   { --rarity: #521515; } /* Vinho Profundo (Variação da Híbrida) */
+
+/* =================================================== */
+
+
+/* Detalhes nos cantos */
+.weapon-scroll::before, .weapon-scroll::after {
+    content: "✦";
+    position: absolute;
+    color: var(--rarity);
+    font-size: 14px;
+}
+.weapon-scroll::before { top: 2px; left: 4px; }
+.weapon-scroll::after { top: 4px; right: 4px; }
+
+/* 1. O CABEÇALHO */
+.weapon-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--rarity);
+    border-bottom: 2px solid var(--rarity);
+    margin: 5px 10px 0 10px;
+    padding-bottom: 0px;
+    line-height: 0.9em;
+}
+
+.weapon-scroll em {
+    display: block;
+    font-family: 'ScalySans', serif;
+    font-size: 11px;
+    color: #666;
+    margin: 2px 0 0 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weapon-scroll hr { display: none; }
+
+/* 2. A IMAGEM */
+.weapon-scroll p img {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 2;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)) sepia(0.2);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
+}
+
+/* 3. A LISTA DE GOLPES */
+.weapon-scroll ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    padding-right: 5px;
+    list-style: none;
+    margin-bottom: 0px; 
+}
+
+.weapon-scroll li {
+    position: relative;
+    margin-bottom: 4px; 
+    font-size: 11.5px;
+    line-height: 1.2em;
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+    padding-bottom: 2px;
+    left: -5px;
+}
+
+.weapon-scroll li::before {
+    content: "●";
+    position: absolute;
+    left: -15px;
+    color: var(--rarity);
+    font-size: 10px;
+    top: 2px;
+}
+
+.weapon-scroll strong {
+    color: #000;
+    font-variant: small-caps;
+    font-size: 1.1em;
+    margin-right: 3px;
+}
+
+/* 4. A TABELA DE DADOS */
+.weapon-scroll .block {
+    margin-top: 4px; 
+    background: rgba(0,0,0,0.03);
+    border-top: 2px solid var(--rarity);
+    padding: 0;
+}
+
+.weapon-scroll table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.weapon-scroll th {
+    font-family: 'ScalySans', sans-serif;
+    font-size: 9px;
+    color: var(--rarity);
+    text-transform: uppercase;
+    border: none;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 4px 0;
+    font-weight: bold;
+}
+
+.weapon-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 16px;
+    color: #000;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 2px 0 5px 0;
+    text-align: center;
+}
+
+.weapon-scroll th:last-child, .weapon-scroll td:last-child {
+    border-right: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   AMMO SCROLL (MUNIÇÕES)
+   =================================================== */
+
+.ammo-scroll {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 10px 10px 30px 10px; /* Padding extra embaixo para a tabela */
+    
+    /* Visual de Etiqueta/Nota Rápida */
+    background-color: #f0ebe0;
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+    border: 1px solid #333;
+    border-top: 4px solid #333; /* Topo mais grosso para diferenciar */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    
+    font-family: 'Bookinsanity', serif;
+    color: #222;
+    overflow: visible !important;
+}
+
+/* Título da Munição */
+.ammo-scroll h6 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #333;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding-right: 20px;
+}
+
+/* Texto de Efeito */
+.ammo-scroll p {
+    font-size: 11px;
+    line-height: 1.3em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 70%; /* Deixa espaço para a imagem na direita */
+}
+
+.ammo-scroll strong {
+    color: #8a2c2c; /* Destaque em vermelho escuro */
+}
+
+/* IMAGEM DA FLECHA (DEITADA) */
+.ammo-scroll img {
+    position: absolute;
+    /* Ajuste vertical para centralizar no espaço à direita */
+    top: 18px; 
+    /* Traz a imagem para DENTRO do card (valor positivo) */
+    right: 155px; 
+    
+    /* Comprimento da flecha deitada. Reduzido para garantir que caiba. */
+    height: 140px; 
+    width: auto; /* Mantém a proporção */
+
+    /* Gira 90 graus para ficar horizontal */
+    transform: rotate(90deg); 
+    /* Define o centro da imagem como ponto de rotação */
+    transform-origin: center;
+
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* MINI TABELA DE STATUS (DUR/PESO) */
+/* Flutua no canto inferior direito */
+.ammo-scroll .ammo-stats {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #fff;
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding: 2px;
+    z-index: 2;
+}
+
+.ammo-scroll table {
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.ammo-scroll th {
+    font-size: 8px;
+    background: #333;
+    color: #fff;
+    padding: 2px 6px;
+    text-transform: uppercase;
+    font-family: 'ScalySans', sans-serif;
+}
+
+.ammo-scroll td {
+    font-size: 12px;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding: 0;
+    background: #fff;
+    color: #000;
+}
+
+.ammo-scroll td + td {
+    border-left: 1px solid #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   RANGED WEAPON SCROLL V3 (LAYOUT HORIZONTAL)
+   =================================================== */
+
+.rangedweapon-scroll {
+    --rarity: #3e4c36; /* Verde Musgo Padrão */
+    position: relative;
+    margin-bottom: 25px;
+    padding: 5px 10px 0 10px;
+    
+    font-family: 'Bookinsanity', 'ScalySans', serif;
+    color: #1a1a1a;
+    
+    /* Fundo e Bordas */
+    background-color: #f7fcf5; 
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    border: 3px double var(--rarity);
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+/* VARIAÇÕES DE COR */
+.rangedweapon-scroll.arco       { --rarity: #3e4c36; } /* Verde */
+.rangedweapon-scroll.besta      { --rarity: #5e4b35; } /* Marrom */
+.rangedweapon-scroll.zarabatana { --rarity: #5c5728; } /* Oliva */
+
+/* Ícone de Mira (Target) */
+.rangedweapon-scroll::before, .rangedweapon-scroll::after {
+    content: "⌖";
+    position: absolute;
+    color: var(--rarity);
+    font-size: 18px;
+    background-color: #f7fcf5;
+    padding: 0 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 10px;
+}
+.rangedweapon-scroll::before { top: -6px; }
+.rangedweapon-scroll::after { bottom: -6px; }
+
+/* TÍTULO */
+.rangedweapon-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--rarity);
+    border-bottom: 2px solid var(--rarity);
+    margin: 5px 0 5px 0;
+    text-align: center;
+    line-height: 0.9em;
+}
+
+/* --- CONTAINER DA IMAGEM --- */
+.rangedweapon-scroll .img-frame {
+    position: relative;
+    height: 125px; /* Altura fixa para a área da imagem */
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* Permite leve vazamento se necessário */
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, transparent 70%); /* Sombra de chão */
+}
+
+/* COMPORTAMENTO 1: ARCOS (Precisam girar) */
+.rangedweapon-scroll.arco .img-frame img {
+    transform: rotate(90deg); /* ...e giramos para deitar */
+    filter: drop-shadow(2px -2px 3px rgba(0,0,0,0.3));
+}
+
+/* COMPORTAMENTO 2: BESTAS/ZARABATANA (Já são deitadas) */
+.rangedweapon-scroll.besta .img-frame img,
+.rangedweapon-scroll.zarabatana .img-frame img {
+    max-width: 95%; /* Ocupa a largura disponível */
+    max-height: 205px; /* Limita altura */
+    width: auto;
+    height: auto;
+    transform: none; /* Sem rotação */
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.3));
+}
+
+
+/* LISTA DE ATRIBUTOS */
+.rangedweapon-scroll ul {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rangedweapon-scroll li {
+    font-size: 11px;
+    line-height: 1.5em;
+    margin-bottom: 2px;
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between; /* Texto justificado nas pontas */
+}
+
+/* Tags (Label à esquerda) */
+.rangedweapon-scroll .stat-tag {
+    color: var(--rarity);
+    font-weight: bold;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+/* Valor (à direita) */
+.rangedweapon-scroll .stat-val {
+    text-align: right;
+    color: #000;
+}
+
+/* RODAPÉ (TABELA) */
+.rangedweapon-scroll .range-footer {
+    margin: 5px -10px 0 -10px;
+    border-top: 2px solid var(--rarity);
+    background: rgba(0,0,0,0.03);
+}
+
+.rangedweapon-scroll table { width: 100%; margin: 0; border-collapse: collapse; }
+.rangedweapon-scroll th {
+    font-family: 'ScalySans', sans-serif;
+    font-size: 9px;
+    color: var(--rarity);
+    text-transform: uppercase;
+    padding: 3px 0;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.rangedweapon-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 15px;
+    color: #000;
+    padding: 2px 0;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.rangedweapon-scroll th:last-child, .rangedweapon-scroll td:last-child { border-right: none; }
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   FIREWEAPON SCROLL (ARMAS DE FOGO)
+   =================================================== */
+
+.fireweapon-scroll {
+    --metal: #4a4a4a; /* Cor Padrão: Aço Escuro */
+    position: relative;
+    margin-bottom: 25px;
+    padding: 5px 10px 0 10px;
+    
+    font-family: 'Bookinsanity', 'ScalySans', serif;
+    color: #222;
+    
+    /* Fundo e Bordas - Textura mais industrial */
+    background-color: #e8e8e8; 
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    /* Borda dupla metálica */
+    border: 3px double var(--metal);
+    border-radius: 3px;
+    /* Sombra mais pesada/metálica */
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.2), inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* VARIAÇÕES DE COR/MATERIAL */
+.fireweapon-scroll.sucateada   { --metal: #B7410E; } /* Cor de Ferrrugem */
+.fireweapon-scroll.curta   { --metal: #5a6e7c; } /* Aço Azulado (Blued Steel) */
+.fireweapon-scroll.mediana { --metal: #8c7853; } /* Bronze/Latão (Industrial) */
+.fireweapon-scroll.longa   { --metal: #2b2b2b; } /* Ferro Negro (Heavy) */
+.fireweapon-scroll.explosivo-improv   { --metal: #126321; } 
+.fireweapon-scroll.explosivo-tatico   { --metal: #124963; } 
+
+/* Ícone de Mira Pesada (Crosshair Heavy) */
+.fireweapon-scroll::before, .fireweapon-scroll::after {
+    content: "⊕";
+    position: absolute;
+    color: var(--metal);
+    font-size: 20px;
+    background-color: #e8e8e8; /* Mascara a linha da borda */
+    border-radius:5px;
+    padding: 1px 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 10px;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+}
+.fireweapon-scroll::before { top: -7px; }
+.fireweapon-scroll::after { bottom: -7px; }
+
+/* TÍTULO */
+.fireweapon-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--metal);
+    border-bottom: 2px solid var(--metal); /* Linha mais grossa */
+    margin: 8px 0 5px 0;
+    text-align: center;
+    line-height: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* --- CONTAINER DA IMAGEM (Horizontal) --- */
+.fireweapon-scroll .img-frame {
+    position: relative;
+    height: 90px;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Brilho metálico no fundo */
+    background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.fireweapon-scroll .img-frame img {
+    max-width: 98%;
+    max-height: 85px;
+    width: auto;
+    height: auto;
+    /* Sombra dura metálica */
+    filter: drop-shadow(2px 3px 1px rgba(0,0,0,0.4));
+}
+
+
+/* LISTA DE ATRIBUTOS */
+.fireweapon-scroll ul {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fireweapon-scroll li {
+    font-size: 11px;
+    line-height: 1.3em;
+    margin-bottom: 3px;
+    /* Linha de separação estilo "rebite" ou "ponto" */
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Tags (Label à esquerda) */
+.fireweapon-scroll .stat-tag {
+    color: var(--metal);
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+/* Valor (à direita) */
+.fireweapon-scroll .stat-val {
+    text-align: right;
+    color: #000;
+    font-family: 'NodestoCapsCondensed', sans-serif; /* Fonte numérica para os dados */
+    font-size: 13px;
+}
+
+/* DESTAQUE PARA O CPD (Concentração) */
+.fireweapon-scroll li.cpd-item .stat-val {
+    color: #a60000; /* Vermelho sangue para custo */
+    font-weight: 900;
+}
+
+
+/* RODAPÉ (TABELA TÉCNICA) */
+.fireweapon-scroll .range-footer {
+    margin: 5px -10px 0 -10px;
+    border-top: 3px solid var(--metal);
+    background: rgba(0,0,0,0.05);
+}
+
+.fireweapon-scroll table { width: 100%; margin: 0; border-collapse: collapse; }
+.fireweapon-scroll th {
+    font-family: 'ScalySans', sans-serif;
+    font-size: 9px;
+    background-color: var(--metal);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 3px 0;
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+.rangedweapon-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 15px;
+    color: #000;
+    padding: 2px 0;
+    text-align: center;
+    border-right: 1px solid var(--metal);
+}
+.fireweapon-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 15px;
+    color: #111;
+    padding: 3px 0;
+    text-align: center;
+    border-right: 1px solid var(--metal);
+    font-weight: bold;
+}
+.fireweapon-scroll th:last-child, .fireweapon-scroll td:last-child { border-right: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   FIREAMMO SCROLL (ATUALIZADO COM ÍCONE NO RODAPÉ)
+   =================================================== */
+
+.fireammo-scroll {
+    --metal: #4a4a4a; /* Cor Aço Escuro */
+    --accent: #8c7853; /* Cor Bronze/Latão para detalhes */
+    
+    position: relative;
+    margin-bottom: 10px;
+    padding: 5px 10px 0 10px;
+    
+    font-family: 'Bookinsanity', 'ScalySans', serif;
+    color: #222;
+    
+    /* Fundo Industrial */
+    background-color: #e8e8e8; 
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    
+    /* Borda Sólida com detalhe lateral */
+    border: 2px solid var(--metal);
+    border-left: 6px solid var(--accent); /* Faixa colorida à esquerda */
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+}
+
+/* TÍTULO */
+.fireammo-scroll h6 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--metal);
+    margin: 5px 0 5px 0;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    width: 100%;
+}
+
+/* SIGLA (CARIMBO) */
+.fireammo-scroll .ammo-stamp {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.15);
+    border: 2px solid rgba(0,0,0,0.15);
+    padding: 0 4px;
+    border-radius: 4px;
+    transform: rotate(-10deg);
+}
+
+/* CONTAINER DA IMAGEM PRINCIPAL */
+.fireammo-scroll .img-frame {
+    position: relative;
+    height: 55px;
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+}
+
+.fireammo-scroll .img-frame img {
+    max-height: 75px;
+    max-width: 95%;
+    width: auto;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+}
+
+/* --- RODAPÉ E ÍCONE DO ANIMAL --- */
+
+.fireammo-scroll .ammo-footer {
+    position: relative; /* Importante para centralizar o ícone */
+    margin: 0 -10px;
+    background: #dcdcdc;
+    border-top: 2px solid var(--metal);
+}
+
+/* ESTILO DA IMAGEM DO ANIMAL (NO MEIO) - ESTILO MEDIEVAL */
+.fireammo-scroll .footer-beast {
+    position: absolute;
+    top: 50%;       /* Centro vertical */
+    left: 50%;      /* Centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste fino do centro */
+    
+    width: 45px;    /* Tamanho do ícone */
+    height: 45px;
+    border-radius: 50%; /* Redondo */
+    
+    /* --- MUDANÇAS VISUAIS --- */
+    
+    /* 1. Borda mais grossa de bronze */
+    border: 3px solid var(--accent); 
+    
+    /* 2. Fundo de pergaminho em vez de branco */
+    background-color: #d9cfae;
+    padding: 3px; /* Espaço interno entre a imagem e a borda de bronze */
+    
+    /* 3. FILTROS DE ENVELHECIMENTO (O segredo do estilo) */
+    /* Transforma qualquer imagem em um "desenho antigo" */
+    filter: sepia(80%) contrast(140%) brightness(90%) grayscale(20%);
+
+    /* 4. Sombra interna (inset) para profundidade e externa para relevo */
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.7), 0 3px 5px rgba(0,0,0,0.4);
+    
+    z-index: 10; 
+    object-fit: cover; /* Garante que a imagem preencha a bolinha */
+}
+
+/* TABELA */
+.fireammo-scroll table { width: 100%; margin: 0; border-collapse: collapse; }
+
+.fireammo-scroll th {
+    font-size: 10px;
+    background-color: var(--metal);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 2px 0;
+    width: 50%;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.fireammo-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+    padding: 4px 0; /* Aumentei um pouco para dar ar ao ícone */
+    text-align: center;
+    background-color: transparent;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.fireammo-scroll td:last-child { border-right: none; }
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   FIREARM NOTE (NOTA COMPACTA DE REGRA)
+   =================================================== */
+
+.firearm-note {
+    display: block;
+    position: relative;
+    margin: 0px 0; /* Margem apenas vertical */
+    
+    /* Compactação máxima */
+    padding: 5px 8px; 
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Estética de Papel/Livro */
+    background-color: #f0e6d2; /* Pergaminho um tom mais escuro */
+    background-image: url("https://www.transparenttextures.com/patterns/aged-paper.png");
+    
+    /* Borda Clássica de RPG (Dupla e Sóbria) */
+    border: 2px double #5c4033; /* Marrom couro */
+    border-radius: 4px;
+    
+    /* Sombra sutil para destacar do fundo */
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+
+    /* Tipografia Ajustada (Pequena e Densa) */
+    font-family: 'ScalySans', serif; /* Fonte de corpo de texto padrão */
+    font-size: 10.5px; /* Fonte reduzida conforme pedido */
+    line-height: 1.35em; /* Linhas próximas */
+    color: #1a1a1a;
+    text-align: justify; /* Texto justificado para ficar quadrado e bonito */
+}
+
+/* Estilo do título "Nota:" */
+.firearm-note strong {
+    font-family: 'MrEavesRemake', sans-serif; /* Fonte de Título */
+    font-weight: 800;
+    font-size: 13px; /* Levemente maior */
+    color: #8a2c2c; /* Destaque em vermelho */
+    text-transform: uppercase;
+    margin-right: 3px;
+}
+
+/* Estilo do Itálico */
+.firearm-note em {
+    font-style: italic;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+/* ===================================================
+   ITEM COST (ETIQUETA DE PREÇO)
+   =================================================== */
+
+.item-cost {
+    /* POSICIONAMENTO: Flutua sobre o card pai */
+    position: absolute;
+    top: -10px;    /* Sobe um pouco para fora da borda */
+    left: -9px;   /* Fica no canto esquerdo */
+    z-index: 50 !important;  /* Garante que fique acima de tudo */
+
+    /* VISUAL: Estilo Moeda/Ouro */
+    background: #e0c067; /* Dourado Fosco */
+    background-image: linear-gradient(to bottom, #ebd593, #d4af37);
+    
+    /* Tipografia */
+    color: #422a10; /* Marrom escuro */
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1em;
+    
+    /* Forma da Etiqueta */
+    padding: 3px 8px;
+    border: 1px solid #75552b;
+    border-radius: 3px;
+    
+    /* Efeitos 3D */
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.4), /* Brilho interno */
+        1px 2px 4px rgba(0,0,0,0.4); /* Sombra projetada */
+        
+    /* Toque final: Leve rotação para parecer colado */
+    transform: rotate(-3deg);
+    
+    /* Garante que não quebre linha */
+    white-space: nowrap;
+}
+
+/* Variante: Se quiser no lado direito, use {{item-cost,right ...}} */
+.item-cost.right {
+    left: auto;
+    right: -4px;
+    transform: rotate(3deg);
+}
+
+
+
+
+
+
+
+
+/* ===================================================
+   MINI ITEM COST (ETIQUETA COMPACTA)
+   =================================================== */
+
+.miniitem-cost {
+    /* POSICIONAMENTO: Mais próximo da borda que o original */
+    position: absolute;
+    top: -6px;    
+    left: -5px;   
+    z-index: 50 !important;
+
+    /* VISUAL: Mantém a identidade dourada */
+    background: #e0c067;
+    background-image: linear-gradient(to bottom, #ebd593, #d4af37);
+    
+    /* Tipografia Reduzida */
+    color: #422a10;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-weight: 800;
+    font-size: 11px; /* Reduzido de 14px */
+    line-height: 1em;
+    
+    /* Forma Compacta */
+    padding: 1px 4px; /* Reduzido de 3px 8px */
+    border: 1px solid #75552b;
+    border-radius: 2px;
+    
+    /* Efeitos */
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.4), 
+        1px 1px 2px rgba(0,0,0,0.4); 
+        
+    transform: rotate(0deg);
+    white-space: nowrap;
+}
+
+/* Variante Direita */
+.miniitem-cost.right {
+    left: auto;
+    right: -5px;
+    transform: rotate(3deg);
+}
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   ARMOR SCROLL (ARMADURAS & DEFESA)
+   =================================================== */
+
+.armor-scroll {
+    --armor-color: #4a5568; /* Cor Padrão (Aço) */
+    
+    position: relative;
+    margin-bottom: 25px;
+    padding: 40px 15px 15px 15px; /* Topo maior para o cabeçalho */
+    
+    /* Fundo de Pergaminho Grosso/Couro */
+    background-color: #fcfbf9;
+    background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+    
+    /* Borda Grossa com cor variável */
+    border: 3px solid var(--armor-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* VARIAÇÕES DE ESTILO */
+.armor-scroll.merivel { --armor-color: #2c3e50; } /* Aço Azulado */
+.armor-scroll.hauberk { --armor-color: #8c7853; } /* Bronze Antigo */
+.armor-scroll.bushi   { --armor-color: #8a2c2c; } /* Laca Vermelha */
+.armor-scroll.fibra   { --armor-color: #276f86; } /* Azul Tecnológico */
+.armor-scroll.escudo  { --armor-color: #5d4037; } /* Madeira/Ferro */
+
+
+/* REBITES NOS CANTOS (Decoração) */
+.armor-scroll::before, .armor-scroll::after {
+    content: "";
+    position: absolute;
+    width: 8px; height: 8px;
+    background: #fff;
+    border: 2px solid var(--armor-color);
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+}
+.armor-scroll::before { top: 6px; left: 6px; box-shadow: 1px 1px 0 var(--armor-color), inset 1px 1px 2px rgba(0,0,0,0.5); }
+.armor-scroll::after  { top: 6px; right: 6px; box-shadow: -1px 1px 0 var(--armor-color), inset 1px 1px 2px rgba(0,0,0,0.5); }
+
+/* CABEÇALHO (TÍTULO NO TOPO) */
+.armor-scroll h4 {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: var(--armor-color);
+    color: #fff;
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 20px 2px 20px;
+    
+    /* Forma de Trapézio invertido */
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+    width: 70%;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* TEXTO DESCRITIVO */
+.armor-scroll p {
+    font-family: 'Bookinsanity', serif;
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.armor-scroll ul {
+    margin: 5px 0 10px 15px;
+    padding: 0;
+}
+
+.armor-scroll li {
+    font-size: 11.5px;
+    margin-bottom: 4px;
+}
+
+/* TABELA DE ESTATÍSTICAS (INTEGRADA) */
+.armor-scroll table {
+    width: 100%;
+    margin: 1px 0 0 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid var(--armor-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.armor-scroll th {
+    background-color: var(--armor-color);
+    color: #fff;
+    font-family: 'ScalySans', sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 4px;
+    border: none;
+    text-align: center;
+}
+
+.armor-scroll td {
+    background-color: rgba(255,255,255,0.5);
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 14px;
+    color: #111;
+    padding: 4px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.armor-scroll tr:last-child td { border-bottom: none; }
+.armor-scroll td:last-child { border-right: none; }
+
+/* AJUSTE PARA O PREÇO NÃO FICAR EM CIMA DO CABEÇALHO */
+.armor-scroll .item-cost {
+    top: -10px;
+    left: -10px;
+    transform: rotate(0deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   SUPPORT SCROLL (MOCHILAS, BAINHAS E MUNIÇÃO)
+   =================================================== */
+
+.support-scroll {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 15px;
+    
+    /* Fundo de Couro Leve */
+    background-color: #fdf6e3;
+    background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+    
+    /* Borda com costura */
+    border: 3px solid #5d4037; /* Marrom Couro */
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efeito de Costura Interna */
+.support-scroll::after {
+    content: "";
+    position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px dashed #8d6e63;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* TÍTULOS DE SEÇÃO DENTRO DO SCROLL */
+.support-scroll h4 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: #5d4037;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 2px solid #5d4037;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+/* TABELAS DENTRO DO SUPPORT SCROLL */
+.support-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.support-scroll th {
+    background-color: #5d4037;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 10px;
+    border: 1px solid #3e2723;
+}
+
+.support-scroll td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #d7ccc8;
+    color: #333;
+    vertical-align: middle;
+}
+
+/* Destaque para a primeira coluna (Nome do item) */
+.support-scroll td:first-child {
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #222;
+    position: relative; /* Necessário para o preço */
+    padding-left: 15px; /* Espaço extra para não encavalar com o preço */
+}
+
+/* Ajuste fino da etiqueta de preço dentro da tabela */
+.support-scroll .miniitem-cost {
+    top: -5px;
+    left: -8px;
+    transform: rotate(-5deg) scale(0.9);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Linha alternada para facilitar leitura */
+.support-scroll tr:nth-child(even) td {
+    background-color: rgba(93, 64, 55, 0.05);
+}
+
+/* REGRAS ESPECIAIS (ADRENALINA) */
+.adrenaline-box {
+    background: rgba(138, 44, 44, 0.1);
+    border-left: 4px solid #8a2c2c;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-family: 'Bookinsanity', serif;
+    font-style: italic;
+    color: #5a1a1a;
+}
+.adrenaline-box strong {
+    color: #8a2c2c;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   LOGISTICS SCROLL (ARMAZENAMENTO)
+   =================================================== */
+.logistics-scroll {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 15px;
+    
+    /* Visual de Manifesto de Carga */
+    background-color: #f4f4f4;
+    background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+    
+    /* Borda Estilo Caixote */
+    border: 4px solid #5d4037;
+    outline: 2px dashed #8d6e63;
+    outline-offset: -8px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+.logistics-scroll h3 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: #3e2723;
+    border-bottom: 2px solid #3e2723;
+    margin-top: 0;
+}
+
+/* Tabela Logística */
+.logistics-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: rgba(255,255,255,0.4);
+}
+
+.logistics-scroll th {
+    background-color: #4e342e;
+    color: #fff;
+    font-family: 'ScalySans', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.logistics-scroll td {
+    border: 1px solid #a1887f;
+    padding: 6px;
+    vertical-align: top; /* Alinha texto ao topo para descrições longas */
+}
+
+/* Primeira Coluna (Nome) - Configurada para receber o preço */
+.logistics-scroll td:first-child {
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    position: relative;
+    width: 20%; /* Largura fixa para o nome */
+}
+
+/* ===================================================
+   CATALOG SCROLL (ACESSÓRIOS)
+   =================================================== */
+.catalog-scroll {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    
+    /* Papel Pautado / Catálogo */
+    background-color: #fffdf5;
+    background-image: repeating-linear-gradient(transparent, transparent 19px, #e0e0e0 20px);
+    
+    border-top: 4px solid #333;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.catalog-scroll h3 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 22px;
+    color: #333;
+    background: #fffdf5; /* Cobre as linhas de fundo */
+    display: inline-block;
+    padding-right: 10px;
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+.catalog-scroll h4 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 18px;
+    color: #333;
+    background: #fffdf5; /* Cobre as linhas de fundo */
+    display: inline-block;
+    padding-right: 10px;
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+.catalog-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+/* Cabeçalho da Tabela Oculto ou Discreto */
+.catalog-scroll th {
+    font-size: 9px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+    text-align: left;
+    padding: 2px 5px;
+    background: #fffdf5;
+}
+
+.catalog-scroll td {
+    padding: 8px 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    vertical-align: top;
+    background: rgba(255,253,245,0.8); /* Fundo para legibilidade sobre as linhas */
+}
+
+/* Coluna do Item */
+.catalog-scroll td:first-child {
+    position: relative; /* Para o preço */
+    font-family: 'Bookinsanity', serif;
+    font-size: 13px;
+    width: 65%; /* Maioria do espaço para descrição */
+}
+
+/* Descrição pequena dentro da tabela */
+.catalog-scroll td:first-child em {
+    display: block;
+    font-size: 11px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.2em;
+}
+
+/* Coluna de Efeito */
+.catalog-scroll td:last-child {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #8a2c2c;
+    text-align: right;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   MARKET SCROLL V2 (COM VARIAÇÕES DE COR)
+   =================================================== */
+
+.market-scroll {
+    /* --- CORES PADRÃO (Azul Mercantil) --- */
+    --theme-color: #4a6fa5; 
+    --theme-light: #eef2f7; 
+    --theme-border: #bcd;
+
+    position: relative;
+    margin-bottom: 25px;
+    padding: 15px 15px 5px 15px;
+    
+    /* Fundo de Livro Razão / Papel Pautado */
+    background-color: #fcfcfc;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        url("https://www.transparenttextures.com/patterns/paper.png");
+    background-size: 100% 24px, auto;
+    
+    /* Borda Colorida no Topo e Esquerda */
+    border: 1px solid #aaa;
+    border-top: 4px solid var(--theme-color);
+    border-left: 4px solid var(--theme-color); /* Novo detalhe lateral */
+    border-radius: 2px;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.08);
+}
+
+/* --- VARIANTES DE COR (ADICIONE A CLASSE NO MARKDOWN) --- */
+
+/* Minérios: Cinza Chumbo / Pedra */
+.market-scroll.mineracao { 
+    --theme-color: #546e7a; 
+    --theme-light: #eceff1; 
+    --theme-border: #cfd8dc; 
+}
+
+.market-scroll.lingotes { 
+    --theme-color: #37474f; /* Carvão / Metal Pesado */
+    --theme-light: #eceff1; /* Prata Claro */
+    --theme-border: #b0bec5; /* Aço */
+}
+
+/* Espólios: Roxo / Místico */
+.market-scroll.espolios { 
+    --theme-color: #6a1b9a; 
+    --theme-light: #f3e5f5; 
+    --theme-border: #e1bee7; 
+}
+
+/* Peles: Marrom / Couro */
+.market-scroll.peles { 
+    --theme-color: #795548; 
+    --theme-light: #efebe9; 
+    --theme-border: #d7ccc8; 
+}
+
+/* Carnes: Vermelho Escuro / Sangue */
+.market-scroll.carnes { 
+    --theme-color: #b71c1c; 
+    --theme-light: #ffebee; 
+    --theme-border: #ffcdd2; 
+}
+
+/* Exploração/Artífice: Laranja Queimado / Industrial */
+.market-scroll.exploracao { 
+    --theme-color: #e65100; 
+    --theme-light: #fff3e0; 
+    --theme-border: #ffe0b2; 
+}
+
+/* Coleta: Verde Floresta / Natureza */
+.market-scroll.coleta { 
+    --theme-color: #2e7d32; 
+    --theme-light: #e8f5e9; 
+    --theme-border: #c8e6c9; 
+}
+
+/* TÍTULOS */
+.market-scroll h4, .market-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: var(--theme-color);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--theme-color);
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+}
+
+/* TABELA */
+.market-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: rgba(255,255,255,0.7); /* Leve transparência */
+    margin-bottom: 10px;
+}
+
+/* Cabeçalho da Tabela */
+.market-scroll th {
+    background-color: var(--theme-light);
+    color: var(--theme-color);
+    font-family: 'ScalySans', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 6px;
+    border-bottom: 2px solid var(--theme-border);
+    text-align: center;
+}
+
+/* Células */
+.market-scroll td {
+    padding: 6px 5px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    color: #333;
+    text-align: center;
+}
+
+/* Primeira Coluna (Nome) */
+.market-scroll td:first-child {
+    text-align: left;
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    font-size: 13px;
+    position: relative;
+    padding-left: 8px;
+    color: #111;
+}
+
+/* ETIQUETA DE PREÇO (Dourada) */
+.market-scroll td:first-child .miniitem-cost {
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    display: block;
+    transform: rotate(-3deg);
+    background: #e0c067;
+    background-image: linear-gradient(to bottom, #ebd593, #d4af37);
+    color: #422a10;
+    border: 1px solid #75552b;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    z-index: 5;
+}
+
+/* Subtextos (Itálico na descrição) */
+.market-scroll em {
+    display: block;
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+    line-height: 1.1em;
+    font-weight: normal;
+}
+
+/* Linhas separadoras de CATEGORIA dentro da tabela */
+/* O Markdown deve usar **TEXTO** na primeira coluna para ativar isso visualmente se quiser, 
+   ou usar uma linha com texto em negrito sozinho */
+.market-scroll td strong {
+    color: var(--theme-color);
+}
+
+/* Zebrado */
+.market-scroll tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+
+
+
+
+
+
+/* ===================================================
+   MARKET SCROLL 2 (PAINEL ORGANIZADO)
+   =================================================== */
+
+.market-scroll2 {
+    /* Variáveis Padrão */
+    --main-color: #5d4037;
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    
+    position: relative;
+    padding: 12px;
+    margin-bottom: 15px;
+    
+    /* Visual de Painel/Quadro */
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Título Principal do Painel */
+.market-scroll2 > h4 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: var(--main-color);
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px double var(--main-color);
+    margin-top: 0;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+}
+
+.market-scroll2 > p {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: -1px;
+}
+
+/* ===================================================
+   MARKET CARD (BLOCOS INTERNOS)
+   =================================================== */
+/* Use {{market-card}} para os sub-itens */
+
+.market-scroll2 .block {
+    /* Reseta margens para caber no painel */
+    margin-bottom: 5px;
+}
+
+.market-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-left: 4px solid var(--main-color);
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Título do Cartão (Subcategorias) */
+.market-card h5 {
+
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Descrição pequena ao lado do título (opcional) */
+.market-card h5 em {
+    font-size: 10px;
+    text-transform: none;
+    font-weight: normal;
+    color: #777;
+    margin-left: 10px;
+}
+
+/* Tabela dentro do Cartão */
+.market-card table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0 4px; /* Espaço entre linhas */
+}
+
+.market-card th { display: none; } /* Esconde o cabeçalho da tabela para limpar o visual */
+
+.market-card td {
+    background: rgba(0,0,0,0.02);
+    padding: 4px 5px;
+    border: none;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+/* Coluna 1: Nome e Preço */
+.market-card td:first-child {
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    padding-left: 25px; /* Espaço para a etiqueta */
+    position: relative;
+    border-radius: 4px 0 0 4px;
+    width: 80%;
+}
+
+/* Coluna 2: Peso */
+.market-card td:last-child {
+    text-align: right;
+    color: #666;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Ajuste da Etiqueta de Preço dentro do Card */
+.market-card .miniitem-cost {
+    position: absolute;
+    left: -5px !important; /* Força a posição correta */
+    top: 50% !important;
+    transform: translateY(-50%) rotate(-5deg) scale(0.85) !important;
+    margin: 0 !important;
+}
+
+/* === VARIAÇÕES DE TEMA === */
+
+/* Coleta: Tema Botânico/Verde */
+.market-scroll2.coleta {
+    --main-color: #2e7d32;
+    --bg-color: #e8f5e9;
+    --card-bg: #fff;
+}
+
+/* Exploração: Tema Industrial/Laranja */
+.market-scroll2.exploracao {
+    --main-color: #e65100;
+    --bg-color: #fff3e0;
+    --card-bg: #fff;
+}
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   LIBRARY SCROLL (COM IMAGEM SOBREPOSTA)
+   =================================================== */
+
+.library-scroll {
+    /* Cores Padrão */
+    --lib-color: #5d4037; 
+    --lib-bg: #efebe9;
+    
+    position: relative;
+    margin-bottom: 25px; /* Aumentei a margem para a imagem não bater no item de cima */
+    
+    /* Aumentei o padding da direita para o texto não ficar embaixo do livro */
+    padding: 10px 15px 10px 15px;
+    
+    background-color: var(--lib-bg);
+    border-left: 6px solid var(--lib-color);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    
+    break-inside: avoid;
+    page-break-inside: avoid;
+    
+    min-height: 110px; 
+}
+
+/* Títulos */
+.library-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: var(--lib-color);
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid var(--lib-color);
+    text-transform: uppercase;
+    width: 100%;
+}
+
+/* Lista */
+.library-scroll ul { margin: 0; padding-left: 15px; }
+.library-scroll li {
+    font-family: 'Bookinsanity', serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+    list-style-type: square;
+    color: #222;
+    position: relative;
+}
+.library-scroll strong { color: var(--lib-color); font-size: 13px; }
+
+/* === A IMAGEM QUE PASSA POR CIMA DA LINHA === */
+.library-scroll p img {
+    position: absolute;
+    
+    /* O SEGREDO ESTÁ AQUI: Valores Negativos */
+    top: -20px;    /* Sobe 20px para fora da caixa */
+    right: -10px;  /* Sai 10px para a direita */
+    
+    width: 90px;
+    z-index: 105; /* Garante que fique na frente de tudo */
+    
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.4));
+    
+    /* Removi a máscara de gradiente para o livro parecer sólido */
+    /* Se quiser que ele desapareça embaixo, coloque a máscara de volta */
+    
+    transform: rotate(3deg); /* Uma leve giradinha para ficar natural */
+}
+
+/* Cores das Profissões */
+.library-scroll.cozinheiro { --lib-color: #d84315; --lib-bg: #fbe9e7; }
+.library-scroll.cacador    { --lib-color: #33691e; --lib-bg: #f1f8e9; }
+.library-scroll.artificioso{ --lib-color: #0277bd; --lib-bg: #e1f5fe; }
+.library-scroll.ferreiro   { --lib-color: #455a64; --lib-bg: #eceff1; }
+.library-scroll.historiador{ --lib-color: #f9a825; --lib-bg: #fffde7; }
+
+/* Ajuste da etiqueta de preço */
+.library-scroll .miniitem-cost {
+    position: absolute;
+    top: -2px; left: -22px;
+    transform: rotate(-5deg) scale(0.9);
+    z-index: 5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   TEMA ARCANO ANCESTRAL
+   =================================================== */
+
+:root {
+    --arcane-glow: #b388eb; /* Roxo Brilhante */
+    --war-stone: #5d4037;   /* Pedra de Guerra */
+    --echo-gold: #ffd700;   /* Dourado Energia */
+    --void-bg: #1a1a2e;     /* Fundo Escuro */
+}
+
+/* --- BLOCO INTRODUTÓRIO (WIDE) --- */
+.arcane-intro {
+    background-color: var(--void-bg);
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    border: 2px solid var(--arcane-glow);
+    border-radius: 8px;
+    padding: 20px;
+    color: #e0e0e0;
+    box-shadow: 0 0 15px rgba(179, 136, 235, 0.3);
+    margin-bottom: 30px;
+}
+.arcane-intro h3 { color: var(--arcane-glow); border-bottom: 1px solid var(--arcane-glow); }
+.arcane-intro strong { color: #fff; text-shadow: 0 0 5px var(--arcane-glow); }
+
+/* --- 1. PERGAMINHOS (Estilo Tomo Proibido) --- */
+.forbidden-tome {
+    position: relative;
+    background: #fdf6e3; /* Papel Envelhecido */
+    border-left: 5px solid #4a148c; /* Roxo Profundo */
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.forbidden-tome h4 { color: #4a148c; font-family: 'MrEavesRemake'; border-bottom: 2px solid #4a148c; }
+.forbidden-tome::after {
+    content: "⊢"; /* Runa decorativa */
+    position: absolute; top: 5px; right: 10px;
+    font-size: 30px; color: rgba(74, 20, 140, 0.2);
+}
+
+/* --- 2. INSCRIÇÕES DE GUERRA (Estilo Pedra/Tábula) --- */
+.war-tablet {
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    background-color: #cfd8dc;
+    border: 3px double var(--war-stone);
+    padding: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.war-tablet h4 { color: #3e2723; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #5d4037; }
+.war-tablet ul { padding-left: 20px; column-count: 1; } /* Garante lista única */
+.war-tablet li { font-weight: bold; color: #424242; margin-bottom: 5px; list-style-type: square; }
+
+/* --- 3. ECOS DE ESSÊNCIA (O Destaque Visual) --- */
+/* Container Flex para alinhar os ecos */
+.echo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* O Card Individual do Eco */
+.echo-card {
+    flex: 1; /* Divide espaço igual */
+    min-width: 140px; /* Largura mínima */
+    
+    background: linear-gradient(145deg, #240b36 0%, #000000 100%);
+    border: 1px solid var(--echo-gold);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+/* Título do Eco */
+.echo-card h5 {
+    font-family: 'MrEavesRemake';
+    color: var(--echo-gold);
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* O SLOT DA IMAGEM NO CENTRO */
+.echo-frame {
+    width: 100px;
+    height: 100px;
+    margin: 5px auto 10px auto; /* Centraliza */
+    
+    border-radius: 50%; /* Circular */
+    border: 2px solid var(--echo-gold);
+    background: rgba(0,0,0,0.5);
+    
+    /* Brilho atrás da imagem */
+    box-shadow: inset 0 0 15px var(--arcane-glow), 0 0 10px var(--arcane-glow);
+    
+    position: relative;
+    overflow: hidden; /* Corta a imagem em círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* A Imagem dentro do frame */
+.echo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: normal; /* Garante cor normal */
+}
+
+/* Efeito (Texto de baixo) */
+.echo-effect {
+    font-family: 'NodestoCapsCondensed';
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* Descrição descritiva abaixo dos ecos */
+.echo-flavor {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #333;
+    font-style: italic;
+    background: rgba(255,255,255,0.5);
+    padding: 10px;
+    border-left: 3px solid var(--echo-gold);
+}
+
+/* ===================================================
+   ARCANE PAGE (GATILHO AUTOMÁTICO)
+   =================================================== */
+
+/* 1. O GATILHO: Esconde o texto "{{arcane-page}}" da tela */
+.page .block.arcane-page {
+    display: none;
+}
+
+/* 2. O ESTILO DA PÁGINA (Quando ela contém o gatilho) */
+.page:has(.arcane-page) {
+    /* Definição de Variáveis Locais */
+/*   --void-bg: #1a1a2e; */
+    --void-bg: #1a1a2e;
+    --arcane-glow: #b388eb;
+    --echo-gold: #ffd700;
+    
+    /* Fundo e Textura */
+    background-color: var(--void-bg) !important;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png") !important;
+    
+    /* Texto Base */
+    color: #e0e0e0 !important;
+    
+    /* Borda Neon Interna */
+    box-shadow: 
+        inset 0 0 80px rgba(0,0,0,0.9),
+        inset 0 0 0 2px var(--arcane-glow);
+}
+
+/* 3. REMOVE A MANCHA AMARELA DO RODAPÉ PADRÃO */
+.page:has(.arcane-page)::after {
+    display: none !important;
+}
+
+/* ===================================================
+   ADAPTAÇÃO DOS ELEMENTOS DENTRO DA ARCANE PAGE
+   =================================================== */
+
+/* Títulos Brilhantes */
+.page:has(.arcane-page) h1, 
+.page:has(.arcane-page) h2, 
+.page:has(.arcane-page) h3, 
+.page:has(.arcane-page) h4, 
+.page:has(.arcane-page) h5 {
+    color: #b388eb; /* Hardcoded fallback or use var if supported globally */
+    border-bottom-color: #b388eb;
+    text-shadow: 0 0 8px rgba(179, 136, 235, 0.5);
+}
+
+/* Negritos e Itálicos */
+.page:has(.arcane-page) strong { color: #fff; text-shadow: 0 0 2px #b388eb; }
+.page:has(.arcane-page) em { color: #b0bec5; }
+
+/* Tabelas (Inverte cores para fundo escuro) */
+.page:has(.arcane-page) table th {
+    background-color: rgba(74, 20, 140, 0.6);
+    color: #ffd700;
+    border: 1px solid #b388eb;
+}
+.page:has(.arcane-page) table td {
+    color: #ddd;
+    border-bottom: 1px solid rgba(179, 136, 235, 0.3);
+}
+.page:has(.arcane-page) table tr:nth-child(odd) td {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Notas e Descrições */
+.page:has(.arcane-page) .note, 
+.page:has(.arcane-page) .descriptive {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-image: initial;
+    border: 2px solid #ffd700;
+    color: #ccc;
+}
+
+/* --- BLOCOS PERSONALIZADOS (Ajuste para modo escuro) --- */
+
+/* Tomo Proibido */
+.page:has(.arcane-page) .forbidden-tome {
+    background: rgba(20, 0, 30, 0.6);
+    border: 1px solid #b388eb;
+    border-left: 5px solid #b388eb;
+    color: #ccc;
+}
+.page:has(.arcane-page) .forbidden-tome h4 { color: #ffd700; border-color: #ffd700; }
+
+/* Tábula de Guerra */
+.page:has(.arcane-page) .war-tablet {
+    background-color: #263238;
+    background-blend-mode: multiply;
+    border-color: #546e7a;
+    color: #cfd8dc;
+}
+.page:has(.arcane-page) .war-tablet h4 { color: #eceff1; border-color: #78909c; }
+
+/* Ecos Flavor Text */
+.page:has(.arcane-page) .echo-flavor {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ccc;
+    border-left-color: #ffd700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   MEDIEVAL LEDGER (NOVO ESTILO DE SERVIÇOS)
+   =================================================== */
+
+.medieval-service-block {
+    /* Cores e Variáveis */
+    --paper-bg: #fffbf0;      /* Papel creme claro */
+    --ink-color: #2b1d1a;     /* Tinta marrom escuro */
+    --accent-color: #5d4037;  /* Detalhes em couro */
+    --line-color: #d7ccc8;    /* Linhas da pauta */
+    
+    position: relative;
+    background-color: var(--paper-bg);
+    /* Textura de papel sutil */
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    
+    /* Borda elegante: Fina nas laterais, Grossa no topo/fundo */
+    border: 1px solid #8d6e63;
+    border-top: 4px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    
+    /* Sombra de papel levantado */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+    
+    padding: 12px;
+    margin-bottom: 20px;
+    
+    /* IMPORTANTE: Impede que o bloco seja cortado ao meio na coluna */
+    break-inside: avoid;
+    page-break-inside: avoid;
+    display: inline-block; /* Garante integridade na coluna */
+    width: 100%;
+}
+
+/* Título do Bloco */
+.medieval-service-block h4 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: var(--ink-color);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 0 2px 0;
+    border-bottom: 2px solid var(--ink-color);
+    padding-bottom: 2px;
+}
+
+/* Descrição abaixo do título */
+.medieval-service-block > p {
+    text-align: center;
+    font-style: italic;
+    font-size: 11px;
+    color: #5d4037;
+    margin-bottom: -5px;
+}
+
+/* --- TABELA ESTILO LIVRO-RAZÃO --- */
+.medieval-service-block table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    line-height: 1.3em;
+}
+
+/* Cabeçalho da Tabela */
+.medieval-service-block th {
+    font-family: 'ScalySans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 9px;
+    color: #fff;
+    background-color: var(--accent-color);
+    padding: 4px 6px;
+    border: none;
+    text-align: left;
+}
+.medieval-service-block th:last-child { text-align: right; }
+
+.medieval-service-block td {
+    padding: 6px 4px;
+    border-bottom: 1px solid var(--line-color);
+    vertical-align: top; /* Alinha tudo ao topo para não ficar espaço branco */
+    color: var(--ink-color);
+}
+
+/* Coluna 1: Nome do Serviço */
+.medieval-service-block td:first-child {
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    font-size: 12px;
+    width: 28%;
+}
+
+/* Coluna 2: Descrição/Efeito */
+.medieval-service-block td:nth-child(2) {
+    font-style: normal;
+    color: #4e342e;
+}
+
+/* Coluna 3: Requisitos (Centralizado) */
+.medieval-service-block td:nth-child(3) {
+    text-align: center;
+    width: 25%;
+}
+
+
+/* Zebrado Sutil (Linhas alternadas) */
+.medieval-service-block tr:nth-child(even) td {
+    background-color: rgba(93, 64, 55, 0.04);
+}
+
+/* --- TAGS "CARIMBO" --- */
+/* Elas agora parecem carimbos de tinta no papel */
+.req-tag {
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1px 0;
+    
+    /* Estilo "Carimbo" (Borda sólida, fundo transparente ou claro) */
+    background-color: transparent;
+    border: 1px solid;
+}
+
+/* Verde (Honra Positiva) */
+.req-pos { 
+    color: #33691e; border-color: #33691e; background-color: rgba(51, 105, 30, 0.05);
+}
+/* Vermelho (Honra Negativa) */
+.req-neg { 
+    color: #b71c1c; border-color: #b71c1c; background-color: rgba(183, 28, 28, 0.05);
+}
+/* Azul/Dourado (Reputação) */
+.req-rep { 
+    color: #f57f17; border-color: #f57f17; background-color: rgba(245, 127, 23, 0.05);
+}
+/* Neutro */
+.req-neu {
+    color: #616161; border-color: #757575;
+}
+
+/* --- SUPORTE AO MODO ESCURO (ARCANE PAGE) --- */
+.page:has(.arcane-page) .medieval-service-block {
+    --paper-bg: #263238;
+    --ink-color: #eceff1;
+    --accent-color: #546e7a;
+    --line-color: #455a64;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+    border-color: #78909c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.page:has(.arcane-page) .medieval-service-block th {
+    color: #ffd700; background-color: #37474f;
+}
+.page:has(.arcane-page) .medieval-service-block td:nth-child(2) {
+    color: #b0bec5;
+}
+.page:has(.arcane-page) .medieval-service-block td:last-child {
+    color: #ffd700;
+}
+.page:has(.arcane-page) .req-pos { color: #81c784; border-color: #81c784; background: transparent; }
+.page:has(.arcane-page) .req-neg { color: #e57373; border-color: #e57373; background: transparent; }
+.page:has(.arcane-page) .req-rep { color: #fff176; border-color: #fff176; background: transparent; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   ÍCONES MÉDICOS PARA MEDIEVAL BLOCK
+   =================================================== */
+
+/* Configuração base do ícone "+" antes do título H4 */
+.medieval-service-block.therapy h4::before,
+.medieval-service-block.potion h4::before,
+.medieval-service-block.surgery h4::before {
+    content: "✚";
+    display: inline-block;
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+    line-height: 23px; /* Centraliza verticalmente */
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Cores específicas por tipo */
+.medieval-service-block.therapy h4::before { background-color: #5c6bc0; } /* Azul Terapia */
+.medieval-service-block.potion h4::before { background-color: #66bb6a; }  /* Verde Poção */
+.medieval-service-block.surgery h4::before { background-color: #ef5350; } /* Vermelho Cirurgia */
+
+/* Ajuste fino para textos longos dentro da tabela */
+.medieval-service-block td {
+    vertical-align: top; /* Garante que o texto comece no topo */
+}
+
+/* Estilo para o texto de "Sequelas Afetadas" */
+.sequela-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+    color: #5d4037;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+
+
+
+
+
+
+/* ===================================================
+   SCHEMATIC BLOCK (ENGENHARIA & ARTIFÍCIOS)
+   =================================================== */
+
+.schematic-block {
+    /* Variáveis do Tema */
+    --tech-bg: #fffbf0;      /* Fundo creme */
+    --tech-grid: #cfd8dc;    /* Cor da grade */
+    --tech-border: #455a64;  /* Borda metálica escura */
+    --tech-accent: #263238;  /* Cor de destaque */
+    
+    position: relative;
+    padding: 15px;
+    margin-bottom: 25px;
+    
+    /* Fundo com efeito de papel milimetrado (Grid) */
+    background-color: var(--tech-bg);
+    background-image: 
+        linear-gradient(var(--tech-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--tech-grid) 1px, transparent 1px);
+    background-size: 20px 20px; /* Tamanho dos quadradinhos */
+    
+    /* Borda Técnica */
+    border: 2px solid var(--tech-border);
+    box-shadow: 4px 4px 0px rgba(69, 90, 100, 0.4); /* Sombra dura "blocky" */
+}
+
+/* Cantoneiras decorativas (Parafusos) */
+.schematic-block::before,
+.schematic-block::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #37474f;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 1px rgba(255,255,255,0.5);
+    z-index: 2;
+}
+.schematic-block::before { top: 6px; left: 6px; }
+.schematic-block::after { top: 6px; right: 6px; }
+
+/* Título do Bloco */
+.schematic-block h4 {
+    font-family: 'MrEavesRemake', sans-serif;
+    color: var(--tech-accent);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 2px double var(--tech-border);
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 20px; /* Espaço para ícone de engrenagem se quiser */
+}
+/* Ícone de Engrenagem no título */
+/* .schematic-block h4::before {
+    content: "⚙";
+    display: inline-block;
+    margin-right: 8px;
+    color: #78909c;
+    font-size: 18px;
+} */
+
+/* --- TABELA TÉCNICA --- */
+.schematic-block table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.8); /* Fundo branco para ler melhor */
+    border: 1px solid var(--tech-border);
+}
+
+.schematic-block th {
+    background-color: var(--tech-accent);
+    color: #fff;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px;
+    border: 1px solid var(--tech-border);
+    text-align: center;
+}
+
+.schematic-block td {
+    padding: 8px 6px;
+    border: 1px solid #b0bec5;
+    font-size: 11px;
+    vertical-align: middle;
+    color: #222;
+}
+
+/* Coluna 1: Modelo (Mais larga e negrito) */
+.schematic-block td:first-child {
+    font-family: 'Bookinsanity', serif;
+    font-weight: bold;
+    font-size: 13px;
+    width: 35%;
+    position: relative; /* Necessário para o preço */
+    padding-left: 10px;
+}
+/* Estilo da observação dentro da tabela */
+.schematic-block td:first-child em {
+    display: block;
+    font-weight: normal;
+    font-size: 10px;
+    color: #546e7a;
+    margin-top: 2px;
+}
+
+/* Centralizar as outras colunas */
+.schematic-block td:not(:first-child) {
+    text-align: center;
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 13px;
+}
+
+/* DARK MODE SUPPORT */
+.page:has(.arcane-page) .schematic-block {
+    --tech-bg: #263238;
+    --tech-grid: #37474f;
+    --tech-border: #78909c;
+    --tech-accent: #80cbc4; /* Turquesa neon */
+    color: #eceff1;
+}
+.page:has(.arcane-page) .schematic-block table { background: rgba(0,0,0,0.5); }
+.page:has(.arcane-page) .schematic-block th { background: #37474f; color: #80cbc4; }
+.page:has(.arcane-page) .schematic-block td:first-child em { color: #b0bec5; }
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   BLUEPRINT SCROLL V2 (LAYOUT ESTILO WEAPON SCROLL)
+   =================================================== */
+
+.blueprint-scroll {
+    /* Tema Engenharia / Projeto */
+    --theme-color: #5d4037; /* Marrom Rústico */
+    --bg-paper: #fff8e1;    /* Papel Amarelado */
+    --grid-color: #d7ccc8;  /* Grade */
+    
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    
+    font-family: 'Bookinsanity', 'ScalySans', serif;
+    color: #1a1a1a;
+    
+    /* Fundo Papel Milimetrado */
+    background-color: var(--bg-paper);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    
+    /* Borda Técnica */
+    border: 3px double var(--theme-color);
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    
+    break-inside: avoid;
+}
+
+/* Detalhes nos cantos (Ícone de Cruz/Mais) */
+.blueprint-scroll::before { top: -8px; left: 10px; }
+.blueprint-scroll::after { bottom: -8px; right: 10px; }
+
+/* 1. O CABEÇALHO */
+.blueprint-scroll h5 {
+    font-family: 'MrEavesRemake', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    border-bottom: 2px solid var(--theme-color);
+    margin: 5px 10px 0 10px;
+    padding-bottom: 0px;
+    line-height: 0.9em;
+}
+
+/* Subtítulo (Ex: Materiais) */
+.blueprint-scroll em {
+    display: block;
+    font-family: 'ScalySans', serif;
+    font-size: 11px;
+    color: #5d4037;
+    margin: 2px 5 0 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Oculta HR padrão se houver */
+.blueprint-scroll hr { display: none; }
+
+/* 2. A IMAGEM (ESTILO WEAPON SCROLL) */
+/* Flutua no canto direito com máscara suave */
+.blueprint-scroll p img {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    width: 120px; /* Tamanho controlado */
+    
+    /* Efeitos Visuais */
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3)) sepia(0.3);
+    mix-blend-mode: multiply; /* Fusão com o papel */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* 3. A LISTA DE DESCRIÇÃO */
+.blueprint-scroll ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    padding-right: 95px; /* Espaço para não bater na imagem se ela for grande */
+    list-style: none;
+    margin-bottom: 5px; 
+}
+
+.blueprint-scroll li {
+    position: relative;
+    margin-bottom: 4px; 
+    font-size: 11.5px;
+    line-height: 1.2em;
+    border-bottom: 1px dotted rgba(93, 64, 55, 0.2);
+    padding-bottom: 2px;
+    left: -5px;
+}
+
+.blueprint-scroll li::before {
+    content: "●";
+    position: absolute;
+    left: -15px;
+    color: var(--theme-color);
+    font-size: 10px;
+    top: 2px;
+}
+
+.blueprint-scroll strong {
+    color: #3e2723;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+/* 4. A TABELA DE DADOS (RODAPÉ) */
+/* Usando o container .tech-footer que já aplicamos no markdown */
+.blueprint-scroll .tech-footer {
+    margin: 5px -10px -10px -10px; /* Encosta nas bordas */
+    background: rgba(255,255,255,0.4);
+    border-top: 2px solid var(--theme-color);
+    padding: 0;
+}
+
+.blueprint-scroll table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.blueprint-scroll th {
+    font-family: 'ScalySans', sans-serif;
+    font-size: 9px;
+    color: var(--theme-color);
+    text-transform: uppercase;
+    border: none;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 4px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.blueprint-scroll td {
+    font-family: 'NodestoCapsCondensed', sans-serif;
+    font-size: 16px;
+    color: #000;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding: 2px 0 5px 0;
+    text-align: center;
+}
+
+.blueprint-scroll th:last-child, .blueprint-scroll td:last-child {
+    border-right: none;
+}
+
+/* Ajuste da Etiqueta de Preço para garantir visibilidade */
+.blueprint-scroll .miniitem-cost {
+    z-index: 10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   SUPPLY MANIFEST (CATÁLOGO INDUSTRIAL)
+   =================================================== */
+
+.supply-catalog {
+    /* Variáveis do Tema */
+    --sup-bg: #f4f6f8;       /* Cinza Gelo */
+    --sup-border: #455a64;   /* Cinza Chumbo */
+    --sup-header: #263238;   /* Cabeçalho Escuro */
+    --sup-accent: #ff6f00;   /* Laranja Industrial */
+    --sup-alt-row: #e0e0e0;  /* Zebrado leve */
+
+    position: relative;
+    background-color: var(--sup-bg);
+    border-top: 4px solid var(--sup-border);
+    border-bottom: 2px solid var(--sup-border);
+    padding: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: #333;
+    break-inside: avoid;
+}
+
+
+/* Títulos das Seções (1. Ferramentas...) */
+.supply-catalog h4 {
+    font-weight: 900;
+    color: var(--sup-header);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--sup-accent);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+/* --- TABELA DE SUPRIMENTOS --- */
+.supply-catalog table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.supply-catalog th {
+    background-color: var(--sup-header);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 6px;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.supply-catalog th:nth-child(2) { text-align: center; } /* Centraliza Peso */
+
+.supply-catalog td {
+    padding: 8px 6px;
+    border-bottom: 1px solid #cfd8dc;
+    vertical-align: top;
+    line-height: 1.3em;
+}
+
+/* Linhas Zebradas para facilitar leitura */
+.supply-catalog tr:nth-child(even) td {
+    background-color: rgba(0,0,0,0.03);
+}
+
+/* Coluna 1: Item (com etiqueta) */
+.supply-catalog td:first-child {
+    font-weight: bold;
+    color: #263238;
+    width: 30%;
+    padding-left: 20px; /* Espaço para a etiqueta */
+    position: relative;
+}
+
+/* Coluna 2: Peso */
+.supply-catalog td:nth-child(2) {
+    text-align: center;
+    font-family: monospace;
+    color: #555;
+    width: 10%;
+    white-space: nowrap;
+}
+
+/* Coluna 3: Descrição */
+.supply-catalog td:last-child {
+    color: #455a64;
+}
+
+/* Ajuste da Etiqueta de Preço para Tabelas */
+.supply-catalog .miniitem-cost {
+    z-index: 5;
+    transform: rotate(0deg) scale(0.85); /* Reto e menor */
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- ÁREA DE DETALHES (TEXTO FINAL) --- */
+.supply-details strong {
+    color: var(--sup-accent);
+    text-transform: uppercase;
+    font-size: 13px;
+    display: block;
+    margin-top: 10px;
+    border-left: 3px solid var(--sup-border);
+    padding-left: 8px;
+}
+.supply-details em {
+    font-size: 10px;
+    color: #78909c;
+    text-transform: uppercase;
+    font-style: normal;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* DARK MODE (ARCANE PAGE) */
+.page:has(.arcane-page) .supply-catalog {
+    --sup-bg: #263238;
+    --sup-border: #78909c;
+    --sup-header: #37474f;
+    --sup-accent: #00bcd4; /* Ciano Neon */
+    color: #eceff1;
+}
+.page:has(.arcane-page) .supply-catalog tr:nth-child(even) td {
+    background-color: rgba(255,255,255,0.05);
+}
+.page:has(.arcane-page) .supply-catalog td:first-child { color: #fff; }
+.page:has(.arcane-page) .supply-catalog td { color: #b0bec5; }
+.page:has(.arcane-page) .supply-catalog .miniitem-cost {
+    filter: invert(1) hue-rotate(180deg); /* Inverte a cor da etiqueta para combinar */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================
+   AMULET CARD (TRÍPTICO VISUAL)
+   =================================================== */
+
+.amulet-card {
+    /* Variável de Cor Padrão (Substituída pelas classes específicas) */
+    --am-color: #ffd700; 
+    --am-glow: rgba(255, 215, 0, 0.4);
+    
+    position: relative;
+    background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+    border: 2px solid var(--am-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px var(--am-glow), inset 0 0 20px rgba(0,0,0,0.8);
+    overflow: hidden; /* Mantém tudo dentro das bordas arredondadas */
+    font-family: 'Bookinsanity', serif;
+}
+
+/* CABEÇALHO (NOME E EFEITO) */
+.amulet-header {
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, var(--am-color) 50%, rgba(0,0,0,0.8) 100%);
+    color: #fff; /* Texto sempre branco/claro para contraste */
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px #000;
+    border-bottom: 1px solid var(--am-color);
+}
+
+.amulet-name {
+    font-family: 'MrEavesRemake';
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.amulet-effect {
+    font-family: 'NodestoCapsCondensed';
+    font-size: 14px;
+    background: rgba(0,0,0,0.5);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ÁREA DAS IMAGENS (FLEXBOX) */
+.amulet-visuals {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 5px;
+    
+    /* Fundo sutil atrás das imagens */
+    background-image: radial-gradient(circle at center, var(--am-glow) 0%, transparent 70%);
+}
+
+/* Imagem Central (Maior) */
+.am-img-center {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--am-color);
+    background: #111;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--am-glow);
+    z-index: 2;
+    position: relative;
+}
+
+/* Imagens Laterais (Menores) */
+.am-img-side {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%; /* Ou deixe 4px para quadrado */
+    border: 2px solid var(--am-color);
+    background: #000;
+    opacity: 0.8;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Ajuste das imagens dentro das bolinhas */
+.amulet-visuals img {
+    width: 100%;
+    height: 100%;
+
+}
+
+/* DESCRIÇÃO (RODAPÉ) */
+.amulet-desc {
+    background: rgba(0,0,0,0.4);
+    color: #e0e0e0;
+    font-size: 11px;
+    padding: 8px;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid var(--am-color);
+    line-height: 1.3em;
+}
+
+/* Etiqueta de Preço Flutuante */
+.amulet-card .miniitem-cost {
+    position: absolute;
+    left: -5px;
+    z-index: 10;
+    transform: rotate(0deg) scale(0.95);
+    box-shadow: 2px 2px 5px #000;
+}
+
+
+/* === CORES TEMÁTICAS === */
+
+/* Fogo / Vulcano */
+.amulet-card.fire { 
+    --am-color: #D1670A
+; 
+    --am-glow: rgba(255, 61, 0, 0.3); 
+}
+/* Gelo / Inverno */
+.amulet-card.ice { 
+    --am-color: #00e5ff; 
+    --am-glow: rgba(0, 229, 255, 0.3); 
+}
+/* Veneno / Bile */
+.amulet-card.poison { 
+    --am-color: #609C07; 
+    --am-glow: rgba(118, 255, 3, 0.25); 
+}
+/* Sangue / Carnificina */
+.amulet-card.blood { 
+    --am-color: #d50000; 
+    --am-glow: rgba(213, 0, 0, 0.3); 
+}
+/* Necrose / Esporo */
+.amulet-card.spore { 
+    --am-color: #aa00ff; 
+    --am-glow: rgba(170, 0, 255, 0.3); 
+}
+/* Corrupção / Escuridão */
+.amulet-card.void { 
+    --am-color: #9e9e9e; /* Cinza claro para contrastar no escuro */
+    --am-glow: rgba(255, 255, 255, 0.15); 
+    border-color: #757575;
+}
+.amulet-card.void .amulet-header {
+    background: linear-gradient(90deg, #000 0%, #424242 50%, #000 100%);
+}
+
+
+
+
+
+
+
+/* ===================================================
+   SOCKET TRYPTICH (ENCAIXES NO ESTILO AMULETO)
+   =================================================== */
+
+.socket-tryptich {
+    /* Variáveis de Cor Padrão (Serão sobrescritas pelos temas) */
+    --sock-color: #8d6e63; /* Marrom Ferro */
+    --sock-glow: rgba(141, 110, 99, 0.4);
+    
+    position: relative;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro translúcido */
+    border: 2px solid var(--sock-color);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px var(--sock-glow), inset 0 0 20px rgba(0,0,0,0.8);
+    overflow: hidden;
+    font-family: 'Bookinsanity', serif;
+    break-inside: avoid;
+}
+
+/* CABEÇALHO (NOME E CAPACIDADE) */
+.socket-header {
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, var(--sock-color) 50%, rgba(0,0,0,0.9) 100%);
+    color: #fff;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px #000;
+    border-bottom: 1px solid var(--sock-color);
+}
+
+.socket-name {
+    font-family: 'MrEavesRemake';
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.socket-capacity {
+    font-family: 'NodestoCapsCondensed';
+    font-size: 14px;
+    background: rgba(0,0,0,0.6);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.socket-visuals {
+    /* Define a área como um bloco retangular */
+    display: block;
+    width: 100%;
+    /* Altura fixa para manter consistência. Ajuste se quiser mais alto ou mais baixo */
+    height: 140px; 
+    
+    /* Remove margens internas conforme solicitado */
+    padding: 0;
+    margin: 0;
+    
+    /* Garante que a imagem não vaze */
+    overflow: hidden;
+    position: relative;
+
+    /* Decoração das bordas do container da imagem */
+    border-top: 1px solid var(--sock-color);
+    border-bottom: 1px solid var(--sock-color);
+    
+    /* Sombra interna brilhante para integrar ao tema */
+    box-shadow: inset 0 0 40px var(--sock-glow);
+
+    /* Fundo de fallback caso a imagem seja transparente ou demore a carregar */
+    background-image: radial-gradient(circle at center, var(--sock-glow) 0%, #000 80%);
+}
+
+/* Estilo da Imagem Única Direta */
+.socket-visuals img {
+    width: 100%;
+    height: 100%;
+    /* Faz a imagem cobrir todo o espaço sem distorcer, cortando os excessos se necessário */
+    object-fit: cover; 
+    /* Remove espaços em branco indesejados na base da imagem */
+    display: block; 
+    
+    /* Opcional: Leve transparência para o brilho do fundo interagir com a imagem */
+    opacity: 0.95; 
+    /* Opcional: Modo de mistura para um efeito mais "mágico" (teste se gostar) */
+    /* mix-blend-mode: hard-light; */
+}
+
+/* DESCRIÇÃO */
+.socket-desc {
+    background: rgba(0,0,0,0.5);
+    color: #e0e0e0;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid var(--sock-color);
+    line-height: 1.4em;
+}
+
+/* BARRA DE STATUS (PESO) - Novo elemento para info técnica */
+.socket-stats-bar {
+    background: rgba(0,0,0,0.8);
+    color: #bbb;
+    font-size: 11px;
+    padding: 4px 10px;
+    text-align: center;
+    border-top: 1px dotted var(--sock-color);
+    font-family: 'ScalySans', sans-serif;
+    text-transform: uppercase;
+}
+.socket-stats-bar strong {
+    color: var(--sock-color);
+    font-family: 'NodestoCapsCondensed';
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+/* Etiqueta de Preço Flutuante */
+.socket-tryptich .miniitem-cost {
+    position: absolute;
+    top: 35px;
+    left: -5px;
+    z-index: 10;
+    transform: rotate(-5deg) scale(0.85);
+    box-shadow: 2px 2px 5px #000;
+    border-color: var(--sock-color); /* Borda da etiqueta na cor do tema */
+}
+
+/* === TEMAS DE COR DOS ENCAIXES === */
+
+/* Básico: Ferro/Rústico (Marrom) */
+.socket-tryptich.basic {
+    --sock-color: #8d6e63; 
+    --sock-glow: rgba(141, 110, 99, 0.4);
+}
+
+/* Complexo: Aço/Prata (Azul Metálico) */
+.socket-tryptich.complex {
+    --sock-color: #90a4ae; 
+    --sock-glow: rgba(144, 164, 174, 0.4);
+}
+.socket-tryptich.complex .socket-header {
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, #546e7a 50%, rgba(0,0,0,0.9) 100%);
+}
+
+/* Avançado: Runita/Ouro (Roxo e Dourado) */
+.socket-tryptich.advanced {
+    --sock-color: #ffd700; /* Dourado Principal */
+    --sock-glow: rgba(255, 215, 0, 0.4);
+}
+.socket-tryptich.advanced .socket-header {
+    /* Gradiente Roxo no centro para contraste rico com o Ouro */
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, # 50%, rgba(0,0,0,0.9) 100%);
+    border-bottom-color: #ffd700;
+}
+.socket-tryptich.advanced .socket-capacity,
+.socket-tryptich.advanced .socket-stats-bar strong {
+    color: #ffd700; /* Texto de destaque em ouro */
+}
